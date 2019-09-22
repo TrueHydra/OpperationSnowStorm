@@ -1,5 +1,5 @@
 import base.Controller;
-import base.Model;
+import base.ModelStuff.Model;
 import base.Printer;
 
 public class Runner {
@@ -13,7 +13,7 @@ public class Runner {
         Printer printer=new Printer();
         Model model=new Model(printer);
         Controller controller=new Controller(model);
-        
+
 
 
 
