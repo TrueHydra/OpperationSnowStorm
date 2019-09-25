@@ -47,7 +47,7 @@ public class Controller {
      */
     private Boolean checkIfIsCommand(String s){
         try {
-            if ((ACCEPTABLE_COMMAND_STARTS.contains(s.split(" ")[0]) && !Pattern.matches("[^a-zA-Z]", s) && s.split(" ").length < 3)||s.split(" ")[0].equals("PICK")&&s.split(" ")[1].equals("UP"))
+            if ((ACCEPTABLE_COMMAND_STARTS.contains(s.split(" ")[0]) && !Pattern.matches("[^a-zA-Z]", s))||s.split(" ")[0].equals("PICK")&&s.split(" ")[1].equals("UP"))
                 return true;
         }catch (NullPointerException e){
             return false;

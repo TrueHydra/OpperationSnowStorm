@@ -84,9 +84,14 @@ public class Model {
             examineCommand();
         }
         else if(split[0].equals("SOLVE")){
-            solveCommand();
+            solveCommand(command.substring(split[0].length()+1));
         }
-
+        else if(split[0].equals("ENTER")){
+            enterRoomCommand(command.substring(split[0].length()+1,command.length()));
+        }
+        else if(split[0].equals("LOOK")){
+            lookCommand();
+        }
     }
 
 
@@ -252,6 +257,26 @@ public class Model {
     private void solveCommand(String answer){
         System.out.println("needs done:: solve command");
 
+    }
+
+    /**
+     *
+     * The player must be able to enter an accessible room by using the ENTER command. The player should specify which room they wish to enter by also naming the accessible room following the command. The system must then put the player in the entered room and will display the aforementioned room’s description.
+     *
+     * If the player selects the elevator, the system will prompt the user about which floor the user wishes to go to with a list. Only unlocked floors will be displayed. Completing that floors puzzle unlocks the floor above. If the player changes floors,
+     *
+     * @param roomName
+     */
+    private void enterRoomCommand(String roomName){
+        System.out.println("needs done :: enter room command");
+    }
+
+    /**
+     *The player must be able to examine the room they are currently in using the LOOK command. The system must then display a description of all visible monsters, puzzles, items, and entrances to other rooms.
+     *
+     */
+    private void lookCommand(){
+        System.out.println("needs done:: look command");
     }
 
 
