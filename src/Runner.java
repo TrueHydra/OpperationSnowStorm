@@ -12,7 +12,7 @@ public class Runner {
 
         Printer printer=new Printer();
         Model model=new Model(printer);
-        Controller controller=new Controller(model);
+      //  Controller controller=new Controller(model);
 
 
 

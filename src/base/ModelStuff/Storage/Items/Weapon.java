@@ -1,4 +1,11 @@
 package base.ModelStuff.Storage.Items;
 
-public class Weapon {
+import java.awt.event.WindowAdapter;
+
+public class Weapon extends Item {
+
+    public Weapon(){
+        super();
+    }
+
 }

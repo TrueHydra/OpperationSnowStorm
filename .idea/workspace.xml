@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c399d8b-8ab7-4959-b4d9-49f01196477d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/base/ModelStuff/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/base/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/base/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Printer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,6 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../adv prging" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -48,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Model">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="OpperationSnowStorm" />
@@ -59,6 +58,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Model" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="base.ModelStuff.Model" />
+      <module name="OpperationSnowStorm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="base.ModelStuff.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Model" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -70,7 +87,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569124098838</updated>
-      <workItem from="1569124102085" duration="2029000" />
+      <workItem from="1569124102085" duration="6015000" />
+      <workItem from="1569254388930" duration="46000" />
+      <workItem from="1569380141343" duration="15000" />
+      <workItem from="1569418886878" duration="3559000" />
     </task>
     <servers />
   </component>
@@ -82,7 +102,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
