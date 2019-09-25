@@ -1,5 +1,6 @@
 package base.ModelStuff;
 
+import base.Controller;
 import base.ModelStuff.Storage.Monster;
 import base.ModelStuff.Storage.Player;
 import base.ModelStuff.Storage.Puzzle;
@@ -11,15 +12,25 @@ import java.util.List;
 public class Model {
 
     private Printer printer;
+    private Controller controller=new Controller(new Model(new Printer()),new Printer());
     private Player player;
     private Room currentRoom;
     private List<Room> rooms;
     private List<Puzzle> puzzles;
     private List<Monster> monsters;
+    private boolean isReady;
 
-    public Model(Printer printer){
+    public Model(Printer printer) {
         this.printer=printer;
         setupNew();
+    }
+
+    public void setController(Controller controller){
+        this.controller=controller;
+    }
+
+    public boolean isReady(){
+        return isReady;
     }
 
     /**
@@ -27,13 +38,13 @@ public class Model {
      */
     public void setupNew(){
         player=new Player();
-
     }
 
     /**
      *this method takes in a command and responds to it
      */
     public void command(String command){
+        isReady=false;
         String[] split=command.split(" ");
         if(split[0].equals("START")){
             startCommand();
@@ -96,15 +107,18 @@ public class Model {
 
 
 //command methods
+// all methods MUST set isReady to true when finished
     /**
      * this handels the start command
      *
      * creates new game
      *
+     *
      * The player must be able to begin a new game by using the START command at the title screen. The system will then create a new game and start the player in Room 1.1.
      */
     private void startCommand(){
         System.out.println("needs done");
+        isReady=true;
     }
 
     /**
@@ -116,6 +130,7 @@ public class Model {
      */
     private void endCommand(){
         System.out.println("neeeds doen");
+        isReady=true;
     }
 
     /**
@@ -125,6 +140,7 @@ public class Model {
      */
     private void saveCommand(){
         System.out.println("need done");
+        isReady=true;
     }
 
     /**
@@ -134,6 +150,7 @@ public class Model {
      */
     private void loadGame(){
         System.out.println("needs done:: load game");
+        isReady=true;
     }
 
     /**
@@ -143,6 +160,7 @@ public class Model {
      */
     private void helpCommand(){
         System.out.println("needs done ::help command");
+        isReady=true;
     }
 
     /**
@@ -152,6 +170,7 @@ public class Model {
      */
     private void healthCommand(){
         System.out.println("needs done:: health command");
+        isReady=true;
     }
 
     /**
@@ -160,6 +179,7 @@ public class Model {
      */
     private void inventoryCommand(){
         System.out.println("needs done:: invn command");
+        isReady=true;
     }
 
     /**
@@ -170,6 +190,7 @@ public class Model {
      */
     private void consumeCommand(String foodName){
         System.out.println("needs done:: consume :"+ foodName);
+        isReady=true;
     }
 
     /**
@@ -180,6 +201,7 @@ public class Model {
      */
     private void useCommand(String puzzleItemName){
         System.out.println("needs done:: use command");
+        isReady=true;
     }
 
     /**
@@ -191,6 +213,7 @@ public class Model {
      */
     private void equipCommand(String armorName){
         System.out.println("needs done:: equip command");
+        isReady=true;
     }
 
     /**
@@ -202,6 +225,7 @@ public class Model {
      */
     private void pickUPCommand(String itemName){
         System.out.println("needs done:: pick up");
+        isReady=true;
     }
 
     /**
@@ -213,6 +237,7 @@ public class Model {
      */
     private void dropCommand(String itemName){
         System.out.println("needs done:: drop command");
+        isReady=true;
     }
 
     /**
@@ -222,6 +247,7 @@ public class Model {
      */
     private void observeCommand(){
         System.out.println("needs done:: observe command");
+        isReady=true;
     }
 
     /**
@@ -229,6 +255,7 @@ public class Model {
      */
     private void attackCommand(){
         System.out.println("needs done:: attack command");
+        isReady=true;
     }
 
     /**
@@ -236,6 +263,7 @@ public class Model {
      */
     private void escapeCommand(){
         System.out.println("needs done: escape command");
+        isReady=true;
     }
 
     /**
@@ -245,6 +273,7 @@ public class Model {
      */
     private void examineCommand(){
         System.out.println("needs done: examine command");
+        isReady=true;
     }
 
     /**
@@ -256,6 +285,7 @@ public class Model {
      */
     private void solveCommand(String answer){
         System.out.println("needs done:: solve command");
+        isReady=true;
 
     }
 
@@ -269,6 +299,7 @@ public class Model {
      */
     private void enterRoomCommand(String roomName){
         System.out.println("needs done :: enter room command");
+        isReady=true;
     }
 
     /**
@@ -277,6 +308,7 @@ public class Model {
      */
     private void lookCommand(){
         System.out.println("needs done:: look command");
+        isReady=true;
     }
 
 
@@ -285,8 +317,6 @@ public class Model {
      * @param args
      */
     public static void main(String[] args) {
-        Model m=new Model(new Printer());
-        m.command("CONSUME foodName");
     }
 
 

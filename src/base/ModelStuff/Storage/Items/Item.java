@@ -4,19 +4,23 @@ import com.sun.corba.se.spi.ior.IORTemplate;
 
 public class Item {
 
-    private String description;
-    private int itemId;
+    private String name;
+    private String itemId;
 
     public Item(){
 
     }
 
-    public Item(int id,String description){
+    public Item(String id,String name){
         itemId=id;
-        this.description=description;
+        this.name=name;
     }
 
-    public String getDescription(){
-        return description;
+    public String getName(){
+        return name;
+    }
+
+    public String getID(){
+        return itemId;
     }
 }

@@ -20,6 +20,22 @@ public class Player {
         inventory=new LinkedList<>();
     }
 
+    public Player(int health,Room currentRoom,LinkedList<Item> inventory,Weapon weapon){
+        this.health=health;
+        this.currentRoom=currentRoom;
+        this.inventory=inventory;
+        this.weapon=weapon;
+    }
+
+    /**
+     * cveates player from save string
+     *
+     * @param saveString
+     */
+    public Player(String saveString){
+        System.out.println("needs done player from save stirng");
+    }
+
 //public stuff
 
     /**
@@ -47,7 +63,7 @@ public class Player {
      */
     public Item removeItemFromInventory(String itemName){
         for(Item i:inventory){
-            if(itemName.equals(i.getDescription())){
+            if(itemName.equals(i.getName())){
                 Item hold=i;
                 inventory.remove(i);
                 return hold;
@@ -64,7 +80,7 @@ public class Player {
      */
     public void equipWeapon(String weaponName){
         for(Item i:inventory){
-            if(i.getDescription().equals(weaponName)){
+            if(i.getName().equals(weaponName)){
                 inventory.add(weapon);
                 weapon=(Weapon)i;
             }
@@ -78,6 +94,19 @@ public class Player {
      */
     public int getHealth(){
         return health;
+    }
+
+    /**
+     * returns true if player lives
+     *
+     * @param damage
+     * @return
+     */
+    public boolean takeDamage(int damage){
+        health-=damage;
+        if (damage<=0)
+            return false;
+        return true;
     }
 
 

@@ -11,6 +11,7 @@ public class Controller {
 
     private Model model;
     private Printer printer;
+    private boolean keepGoing=false;
 
     private static String[] hold=new String[]{"START","QUIT","SAVE","LOAD","HELP","HEALTH","CONSUME","USE","EQUIP","PICKUP","DROP","OBSERVE","ATTACK","ESCAPE","EXAMINE","SOLVE","ENTER","LOOK"};
     private static final HashSet<String> ACCEPTABLE_COMMAND_STARTS=new HashSet<>(Arrays.asList(hold));
@@ -35,6 +36,27 @@ public class Controller {
             return;
         }
         model.command(command);
+    }
+
+    public void startGame(){
+        keepGoing=true;
+        gameLoop();
+    }
+
+    /**
+     * loops the interaction
+     */
+    private void gameLoop(){
+        while(keepGoing){
+            if(model.isReady()) {
+                takeCommand();
+            }
+            try {
+                wait(1);
+            }catch (InterruptedException e){
+                System.out.println(e);
+            }
+        }
     }
 
 
