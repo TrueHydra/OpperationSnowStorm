@@ -3,6 +3,7 @@ package base.ModelStuff.Storage;
 import base.ModelStuff.Storage.Items.Item;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Room {
@@ -10,13 +11,13 @@ public class Room {
     private String name,description,id;
     private Monster monster;
     private Puzzle puzzle;
-    private HashSet<Room> connections;
+    private HashMap<String,Room> connections;
     private boolean hasBeenVisited;
-    private ArrayList<Item> inventory;
+    private HashMap<String,Item> inventory;
 
     public Room(){}
 
-    public Room(String name,String description,Monster monster,Puzzle puzzle,HashSet<Room> connections,boolean hasBeenVisited,String id, ArrayList<Item> inventory){
+    public Room(String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Room> connections,boolean hasBeenVisited,String id, HashMap<String,Item> inventory){
         this.name=name;
         this.description=description;
         this.monster=monster;
@@ -37,58 +38,104 @@ public class Room {
     }
 
 //get methods
+
+    /**Josh
+     *
+     * returns the room name
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
-    public boolean isHasBeenVisited() {
-        return hasBeenVisited;
-    }
-
-    public HashSet<Room> getConnections() {
-        return connections;
-    }
-
-    public Monster getMonster() {
-        return monster;
-    }
-
-    public Puzzle getPuzzle() {
-        return puzzle;
-    }
-
+    /**Josh
+     *
+     * returns the room description
+     */
     public String getDescription() {
         return description;
     }
 
-    public String getId() {
-        return id;
+    /**Josh
+     *
+     * returns the puzzle in the room
+     *
+     * @return
+     */
+    public Puzzle getPuzzle() {
+        return puzzle;
     }
 
-    public ArrayList<Item> getInventory(){
+    /**Josh
+     *
+     * returns the monster in the room
+     *
+     * @return
+     */
+    public Monster getMonster() {
+        return monster;
+    }
+
+    /**Josh
+     *
+     * returns hasBeenVisited
+     *
+     * @return
+     */
+    public boolean hasBeenVisited() {
+        return hasBeenVisited;
+    }
+
+    /**Josh
+     *
+     * returns the inventory
+     *
+     * @return
+     */
+    public HashMap<String, Item> getInventory() {
         return inventory;
     }
 
-//public methodos
+    /**Josh
+     *
+     * returns the rooms inventory
+     *
+     * @return
+     */
+    public HashMap<String, Room> getConnections() {
+        return connections;
+    }
 
     /**
      *
-     * checks if the room has a monster
+     * returns if the room has a monster
      *
      * @return
      */
     public boolean hasMonster(){
-        System.out.println("needs done hasMonster");
+        System.out.println("hasMonster()");
         return false;
     }
 
     /**
-     * checks if room has puzzle
+     *
+     * returns if the room has a puzzle
      *
      * @return
      */
     public boolean hasPuzzle(){
-        System.out.println("needs doen hasPuzzle");
+        System.out.println("hasPuzzle()");
         return false;
     }
+
+    /**Josh
+     *
+     * when player visits room sets has been visited true
+     *
+     */
+    public void visit(){
+        hasBeenVisited=true;
+    }
+
 }

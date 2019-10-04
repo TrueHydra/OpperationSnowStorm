@@ -4,6 +4,7 @@ import base.ModelStuff.Storage.Items.Item;
 import base.ModelStuff.Storage.Items.Weapon;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -12,15 +13,13 @@ public class Player {
 
     private int health;
     private Room currentRoom;
-    private LinkedList<Item> inventory;
+    private HashMap<String,Item> inventory;
     private Weapon weapon;
 
     public Player() {
-        health = 100;
-        inventory = new LinkedList<>();
     }
 
-    public Player(int health, Room currentRoom, LinkedList<Item> inventory, Weapon weapon) {
+    public Player(int health, Room currentRoom, HashMap<String,Item> inventory, Weapon weapon) {
         this.health = health;
         this.currentRoom = currentRoom;
         this.inventory = inventory;
@@ -139,7 +138,7 @@ public class Player {
      *
      * @return
      */
-    public LinkedList<Item> getInventory() {
+    public HashMap<String,Item> getInventory() {
         return inventory;
     }
 
@@ -152,6 +151,17 @@ public class Player {
      */
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
+    }
+
+    /**
+     * checks if item is in players inventory
+     *
+     * @param itemName
+     * @return
+     */
+    public boolean hasItem(String itemName){
+        System.out.println("hasItem()");
+        return false;
     }
 
     //private stuff
