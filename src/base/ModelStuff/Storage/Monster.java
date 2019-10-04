@@ -1,5 +1,7 @@
 package base.ModelStuff.Storage;
 
+import javafx.application.Platform;
+
 public class Monster {
 
     private String name,id;
@@ -12,46 +14,45 @@ public class Monster {
         this.damage=damage;
     }
 
+//public methods
+
     /**
-     * takes in the save string and creates monster from it
      *
-     * @param saveString
+     * takes in damage from monster
+     *
+     * @param damage
      */
-    public Monster(String saveString){
-        System.out.println("needs to be done monster from string");
+    public void takeDamage(int damage){
+        System.out.println("monster takeDamage()");
     }
 
-//get methods
-
-
-    public String getId() {
-        return id;
-    }
-
+    /**Josh
+     *
+     * returns the name of the room
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
+    /**Josh
+     *
+     * returns monster health
+     *
+     * @return
+     */
     public int getHealth() {
         return health;
     }
 
     /**
-     * this removes amount health from monster
      *
-     * returns false if monster dies
-     * @param amount
-     * @return
+     * takes in player and damages them
+     *
+     * @param player
      */
-    public boolean dealDamage(int amount){
-        health-=amount;
-        if(health<=0)
-            return false;
-        return true;
+    public void attackPlayer(Player player){
+        System.out.println("attack player");
     }
-
 }
