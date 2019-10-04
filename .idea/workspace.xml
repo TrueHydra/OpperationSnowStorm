@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c399d8b-8ab7-4959-b4d9-49f01196477d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Puzzle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" afterDir="false" />
@@ -35,7 +29,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../adv prging" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -92,7 +86,10 @@
       <workItem from="1569124102085" duration="6015000" />
       <workItem from="1569254388930" duration="46000" />
       <workItem from="1569380141343" duration="15000" />
-      <workItem from="1569418886878" duration="9025000" />
+      <workItem from="1569418886878" duration="9075000" />
+      <workItem from="1569598090591" duration="1791000" />
+      <workItem from="1569850184221" duration="514000" />
+      <workItem from="1570161140424" duration="1792000" />
     </task>
     <servers />
   </component>

@@ -15,80 +15,97 @@ public class Player {
     private LinkedList<Item> inventory;
     private Weapon weapon;
 
-    public Player(){
-        health=100;
-        inventory=new LinkedList<>();
+    public Player() {
+        health = 100;
+        inventory = new LinkedList<>();
     }
 
-    public Player(int health,Room currentRoom,LinkedList<Item> inventory,Weapon weapon){
-        this.health=health;
-        this.currentRoom=currentRoom;
-        this.inventory=inventory;
-        this.weapon=weapon;
+    public Player(int health, Room currentRoom, LinkedList<Item> inventory, Weapon weapon) {
+        this.health = health;
+        this.currentRoom = currentRoom;
+        this.inventory = inventory;
+        this.weapon = weapon;
     }
 
     /**
-     * cveates player from save string
+     * creates player from save string
      *
      * @param saveString
      */
-    public Player(String saveString){
+    public Player(String saveString) {
         System.out.println("needs done player from save stirng");
     }
 
 //public stuff
 
+    /**adds an item to inventory
+     *
+     *
+     *
+     * @param item
+     */
+    public void addItemToInventory(Item item){
+        System.out.println("needs done add To Inventory");
+    }
+
+
+    /**takes in monster an applies damage to it
+     *
+     * @param monster
+     */
+    public void attackMonster(Monster monster){
+        System.out.println("needs done attack monster");
+    }
+
+    /**takes in the damage from the monster
+     *
+     *
+     * @param damage
+     */
+    public void takeDamage(int damage){
+        System.out.println("needs done player take damage");
+    }
+
     /**
-     * returns the String of the player's inventory
+     * takes in string and returns item from the player inventory
+     * if item not in inventory returns null
+     * does not remove item
+     *
+     * @param itemName
      * @return
      */
-    public String getInventory(){
-        return "not done yet";
+    public Item getItemFromInventory(String itemName){
+        System.out.println("needs done get item from inventory");
+        return null;
     }
 
     /**
-     * adds item to the players inventory
-     * @param i
-     */
-    public void addItemToInventory(Item i){
-        inventory.add(i);
-    }
-
-    /**
-     * removes item from inventory and returns that item
-     *
+     * takes in string and returns item from the player inventory
+     * if item not in inventory returns null
+     * removes item
      *
      * @param itemName
      * @return
      */
     public Item removeItemFromInventory(String itemName){
-        for(Item i:inventory){
-            if(itemName.equals(i.getName())){
-                Item hold=i;
-                inventory.remove(i);
-                return hold;
-            }
-        }
+        System.out.println("needs done remove item from inventory");
         return null;
     }
 
     /**
-     * extanges the current weapon for the new one
+     * takes in weapon and extanges it for the currently equipt one then returns the prior equipt weapon
      *
-     * the weapon name MUST be of a weapon aka handle int controller
-     * @param weaponName
+     * @param weapon
+     * @return
      */
-    public void equipWeapon(String weaponName){
-        for(Item i:inventory){
-            if(i.getName().equals(weaponName)){
-                inventory.add(weapon);
-                weapon=(Weapon)i;
-            }
-        }
+    public Weapon equipWeapon(Weapon weapon){
+        System.out.println("equipWeapon");
+         return null;
     }
 
-    /**
-     *  you idiot
+    /**Josh
+     *
+     * gets health
      *
      * @return
      */
@@ -96,21 +113,48 @@ public class Player {
         return health;
     }
 
-    /**
-     * returns true if player lives
+    /**Josh
      *
-     * @param damage
+     * returns the equiped weapon
+     *
      * @return
      */
-    public boolean takeDamage(int damage){
-        health-=damage;
-        if (damage<=0)
-            return false;
-        return true;
+    public Weapon getWeapon(){
+        return weapon;
     }
 
+    /**Josh
+     *
+     * returns the room the player occupies
+     *
+     * @return
+     */
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
 
+    /**Josh
+     *
+     * returns the players inventory
+     *
+     * @return
+     */
+    public LinkedList<Item> getInventory() {
+        return inventory;
+    }
 
+    /**Josh
+     *
+     * changes the room the player is in
+     *
+     *
+     * @param currentRoom
+     */
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    //private stuff
 
 
 }

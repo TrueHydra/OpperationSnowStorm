@@ -68,4 +68,27 @@ public class Room {
     public ArrayList<Item> getInventory(){
         return inventory;
     }
+
+//public methodos
+
+    /**
+     *
+     * checks if the room has a monster
+     *
+     * @return
+     */
+    public boolean hasMonster(){
+        System.out.println("needs done hasMonster");
+        return false;
+    }
+
+    /**
+     * checks if room has puzzle
+     *
+     * @return
+     */
+    public boolean hasPuzzle(){
+        System.out.println("needs doen hasPuzzle");
+        return false;
+    }
 }
