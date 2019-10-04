@@ -2,52 +2,61 @@ package base.ModelStuff.Storage;
 
 public class Puzzle {
 
-    private String puzzleText,solution, puzzleResonse,id;
+    private String puzzleText,solution, puzzleResponse,id;
+    private boolean beenSolved;
 
     public Puzzle(){}
 
-    public Puzzle(String puzzleText, String solution, String puzzleResonse, String id){
-        this.puzzleResonse = puzzleResonse;
+    public Puzzle(String puzzleText, String solution, String puzzleResponse, String id,boolean beenSolved){
+        this.puzzleResponse = puzzleResponse;
         this.puzzleText=puzzleText;
         this.solution=solution;
         this.id=id;
+        this.beenSolved=beenSolved;
     }
 
-    /**
-     * creates puzzle from a save string
+//public stuff
+
+
+    /**Josh
      *
-     * @param saveString
+     * returns the puzzle text
+     *
+     * @return
      */
-    public Puzzle(String saveString){
-        System.out.println("needs done puzzle from save");
-    }
-
-// get methds
-
-
-    public String getPuzzleResonse() {
-        return puzzleResonse;
-    }
-
     public String getPuzzleText() {
         return puzzleText;
     }
 
-    public String getId() {
-        return id;
+    /**Josh
+     *
+     * returns the puzzle response
+     *
+     * @return
+     */
+    public String getPuzzleResponse() {
+        return puzzleResponse;
     }
-
-//public methods
 
     /**
      *
-     * checks is password matches solution
+     * test the string agains this.solution if is correct beenSolved=true and return true
      *
-     * @param password
+     * @param solution
      * @return
      */
-    public boolean isCorrect(String password){
-        System.out.println("neneds done isCOrrect");
+    public boolean solve(String solution){
+        System.out.println("solve puzzle");
         return false;
+    }
+
+    /**Josh
+     *
+     * return is th puzzle has been solved
+     *
+     * @return
+     */
+    public boolean hasBeenSolved() {
+        return beenSolved;
     }
 }
