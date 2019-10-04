@@ -10,7 +10,7 @@ public class Weapon extends Item {
         super();
     }
 
-    public Weapon(int id,String name,int damage,int uses){
+    public Weapon(String id,String name,int damage,int uses){
         super(id,name);
         this.damage=damage;
         this.usesRemaining=uses;
@@ -30,8 +30,8 @@ public class Weapon extends Item {
      *
      * @return damage
      */
-    public int useWeapon(){
-        usesRemaining--;
+    public int use(){
+        System.out.println("");
         return damage;
     }
 

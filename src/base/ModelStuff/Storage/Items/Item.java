@@ -4,23 +4,32 @@ import com.sun.corba.se.spi.ior.IORTemplate;
 
 public class Item {
 
-    private String name;
-    private String itemId;
+    private String name,id;
 
     public Item(){
 
     }
 
     public Item(String id,String name){
-        itemId=id;
+        this.id=id;
         this.name=name;
     }
 
+//public methods
+
+    /**Josh
+     *
+     * returns item name
+     *
+     * @return
+     */
     public String getName(){
         return name;
     }
 
-    public String getID(){
-        return itemId;
-    }
+
+
+
+
+
 }
