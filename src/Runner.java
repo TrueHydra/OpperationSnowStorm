@@ -1,19 +1,22 @@
 import base.Controller;
-import base.ModelStuff.Model;
-import base.Printer;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class Runner {
+public class Runner extends Application {
 
 
     public static void main(String[] args){
+        launch(args);
+    }
+
+    public void start(Stage primaryStage){
 
         Controller controller;
 
-        Printer printer=new Printer();
-        Model model=new Model(printer);
-        controller=new Controller(model,printer);
+        controller=new Controller(primaryStage);
+        controller.start();
 
-        model.setController(controller);
+
 
 
 

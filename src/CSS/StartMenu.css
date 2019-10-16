@@ -1,0 +1,41 @@
+#subMenuPane{
+    -fx-pref-width: 1000;
+    -fx-pref-height: 800;
+}
+
+#menuPane{
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-pref-width: 1000;
+    -fx-pref-height: 800;
+}
+
+#gameTitle{
+    -fx-font-size: 50;
+}
+
+#button{
+    -fx-pref-height: 50;
+    -fx-pref-width: 100;
+}
+
+#loadButton{
+
+}
+
+#tempHolder{
+    -fx-alignment: center;
+}
+
+#text{
+-fx-font-size: 30;
+}
+
+#textField{
+
+}
+
+#enterButton{
+
+}
+

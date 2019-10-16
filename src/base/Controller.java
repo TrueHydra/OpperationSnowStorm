@@ -1,7 +1,17 @@
 package base;
 
 import base.ModelStuff.Model;
+import com.sun.xml.internal.ws.api.server.EndpointReferenceExtensionContributor;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -10,36 +20,45 @@ import java.util.regex.Pattern;
 public class Controller {
 
     private Model model;
-    private Printer printer;
     private boolean keepGoing=false;
+    private GUI gui;
+    private SaveUtility saveUtility;
+
 
     private static String[] hold=new String[]{"START","QUIT","SAVE","LOAD","HELP","HEALTH","CONSUME","USE","EQUIP","PICKUP","DROP","OBSERVE","ATTACK","ESCAPE","EXAMINE","SOLVE","ENTER","LOOK"};
     private static final HashSet<String> ACCEPTABLE_COMMAND_STARTS=new HashSet<>(Arrays.asList(hold));
 
-    public Controller(Model model,Printer printer){
-       this.model=model;
-       this.printer=printer;
+    public Controller(Stage primaryStage){
+       this.model=new Model();
+       this.gui=new GUI(primaryStage,model,this);
+       saveUtility=new SaveUtility();
+    }
+
+    public void start(){
+        gui.show();
+        gui.showStartMenu();
     }
 
 
 //command stuff
 
     /**
-     * THis is the primary method that the player intact with it reads the commands the player gives
+     * is activated when load gae button pressed
      *
      */
-    public void takeCommand(){
-        Scanner s=new Scanner(System.in);
+    public void loadGameButton(){
 
-        String command=s.nextLine().trim();
-
-        if(!checkIfIsCommand(command)){
-            printer.printBasicCommandProblem();
-            return;
-        }
-        model.command(command);
     }
 
+    /**
+     *
+     * happens when the enter command is taken in the new game menu
+     *
+     * @param s
+     */
+    public void loadGameEnter(String s){
+        System.out.println(s);
+    }
 
 
 
@@ -56,7 +75,6 @@ public class Controller {
     private void gameLoop(){
         while(keepGoing){
             if(model.isReady()) {
-                takeCommand();
             }
             try {
                 wait(1);

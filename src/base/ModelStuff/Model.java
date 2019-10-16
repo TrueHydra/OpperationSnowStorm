@@ -5,14 +5,12 @@ import base.ModelStuff.Storage.Monster;
 import base.ModelStuff.Storage.Player;
 import base.ModelStuff.Storage.Puzzle;
 import base.ModelStuff.Storage.Room;
-import base.Printer;
 
 import java.util.List;
 
-public class Model {
+public class Model{
 
-    private Printer printer;
-    private Controller controller=new Controller(new Model(new Printer()),new Printer());
+    private Controller controller;
     private Player player;
     private Room currentRoom;
     private List<Room> rooms;
@@ -20,8 +18,7 @@ public class Model {
     private List<Monster> monsters;
     private boolean isReady;
 
-    public Model(Printer printer) {
-        this.printer=printer;
+    public Model( ) {
         setupNew();
     }
 
