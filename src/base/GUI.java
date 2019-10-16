@@ -1,6 +1,5 @@
 package base;
 
-import base.ModelStuff.Model;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -26,13 +25,11 @@ public class GUI implements Observer {
      *
      */
     Stage primaryStage;
-    Model model;
     Controller controller;
     private final String GAME_NAME="Operation Snow Storm" ;
 
-    public GUI(Stage primaryStage,Model model,Controller controller){
+    public GUI(Stage primaryStage,Controller controller){
         this.primaryStage=primaryStage;
-        this.model=model;
         this.controller=controller;
         setupStartingMenuScene();
         setupNewGameScene();
