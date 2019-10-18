@@ -1,11 +1,25 @@
+/**
+ * saves by line in format
+ *
+ * id,health,damage,name
+ *
+ *
+ */
+
 package base.ModelStuff.Storage;
 
 import javafx.application.Platform;
 
-public class Monster {
+import java.util.Observable;
+
+public class Monster extends Observable implements Saveable{
 
     private String name,id;
     private int health,damage;
+
+    public Monster(){
+        super();
+    }
 
     public Monster(String name,String id,int health,int damage){
         this.name=name;
@@ -54,5 +68,15 @@ public class Monster {
      */
     public void attackPlayer(Player player){
         System.out.println("attack player");
+    }
+
+    @Override
+    public void save(String saveName) {
+
+    }
+
+    @Override
+    public void load(String saveName){
+
     }
 }

@@ -1,15 +1,21 @@
+/**
+ *
+ * player text save format:
+ *
+ * health,weapon(itemId),inventory(itemId)(seperated by '!'),currentRoom(roomId),is attacking,isexaming a puzzle6
+ *
+ *
+ */
+
 package base.ModelStuff.Storage;
 
 import base.ModelStuff.Storage.Items.Item;
 import base.ModelStuff.Storage.Items.Weapon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 
-public class Player {
+public class Player extends Observable implements Saveable {
 
     private int health;
     private Room currentRoom;
@@ -17,6 +23,7 @@ public class Player {
     private Weapon weapon;
 
     public Player() {
+        super();
     }
 
     public Player(int health, Room currentRoom, HashMap<String,Item> inventory, Weapon weapon) {
@@ -164,7 +171,18 @@ public class Player {
         return false;
     }
 
-    //private stuff
+
+
+
+    @Override
+    public void save(String saveName) {
+
+    }
+
+    @Override
+    public void load(String saveName) {
+
+    }
 
 
 }

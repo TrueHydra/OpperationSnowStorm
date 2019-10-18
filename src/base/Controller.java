@@ -72,8 +72,8 @@ public class Controller {
             gui.addNewGameError("The name must be between 1 and 9 characters long");
         }
         else {
-            gui.addNewGameError("");
             saveUtility.createNewSave(s);
+            loadGameEnter(s);
         }
     }
 

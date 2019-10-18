@@ -1,6 +1,9 @@
+
+
 package base.ModelStuff.Storage.Items;
 
-public class FoodItem extends Item{
+public class
+FoodItem extends Item{
 
     private int saturation;
 

@@ -1,11 +1,24 @@
+/**
+ * saved in format
+ *
+ * id/puzzle text/correct response/puzzle response/ has been solved
+ *
+ *
+ */
+
 package base.ModelStuff.Storage;
 
-public class Puzzle {
+import java.util.Observable;
+
+public class Puzzle extends Observable implements Saveable{
 
     private String puzzleText,solution, puzzleResponse,id;
     private boolean beenSolved;
 
-    public Puzzle(){}
+    public Puzzle(){
+        super();
+
+    }
 
     public Puzzle(String puzzleText, String solution, String puzzleResponse, String id,boolean beenSolved){
         this.puzzleResponse = puzzleResponse;
@@ -58,5 +71,15 @@ public class Puzzle {
      */
     public boolean hasBeenSolved() {
         return beenSolved;
+    }
+
+    @Override
+    public void save(String saveName) {
+
+    }
+
+    @Override
+    public void load(String saveName) {
+
     }
 }

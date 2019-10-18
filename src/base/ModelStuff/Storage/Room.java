@@ -5,8 +5,9 @@ import base.ModelStuff.Storage.Items.Item;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Observable;
 
-public class Room {
+public class Room extends Observable implements Saveable{
 
     private String name,description,id;
     private Monster monster;
@@ -15,7 +16,10 @@ public class Room {
     private boolean hasBeenVisited;
     private HashMap<String,Item> inventory;
 
-    public Room(){}
+    public Room(){
+        super();
+
+    }
 
     public Room(String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Room> connections,boolean hasBeenVisited,String id, HashMap<String,Item> inventory){
         this.name=name;
@@ -139,4 +143,13 @@ public class Room {
         hasBeenVisited=true;
     }
 
+    @Override
+    public void save(String saveName) {
+
+    }
+
+    @Override
+    public void load(String saveName) {
+
+    }
 }

@@ -76,6 +76,11 @@ public class SaveUtility {
         filesToCopy = Paths.get(copyFrom+"\\Text.txt");
         copyFrom(copyTo,filesToCopy);
 
+        //creates the helpText file
+        copyTo=Paths.get(currentSaveFolder+"\\helpText.txt");
+        filesToCopy = Paths.get(copyFrom+"\\helpText.txt");
+        copyFrom(copyTo,filesToCopy);
+
     }
 
     /**Josh
