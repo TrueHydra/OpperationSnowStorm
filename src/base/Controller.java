@@ -3,6 +3,8 @@ package base;
 import base.ModelStuff.Storage.Player;
 import base.ModelStuff.Storage.Room;
 import com.sun.xml.internal.ws.api.server.EndpointReferenceExtensionContributor;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -43,18 +45,39 @@ public class Controller {
         gui.showStartMenu();
     }
 
+//start menu/load menu/start new game menu stuff
 
-//command stuff
-
+    //complete
     /**
      * is activated when load gae button pressed
      *
      */
     public void loadGameButton(){
-
+        gui.showLoadGameMenu(saveUtility.getSaves());
     }
 
-    /**
+    /**Josh
+     *
+     * creates the neew save when button is hit also checks if name is proper
+     *
+     * @param s
+     */
+    public void startNewGame(String s){
+        if(Arrays.asList(saveUtility.getSaves()).contains(s)){
+            System.out.println("stuff");
+            gui.addNewGameError("That name is already taken");
+        }else if(s==null){
+            gui.addNewGameError("Please enter name");
+        }else if(!(s.length()>0 &&s.length()<10)){
+            gui.addNewGameError("The name must be between 1 and 9 characters long");
+        }
+        else {
+            gui.addNewGameError("");
+            saveUtility.createNewSave(s);
+        }
+    }
+
+    /**Josh
      *
      * happens when the enter command is taken in the new game menu
      *
@@ -64,34 +87,22 @@ public class Controller {
         System.out.println(s);
     }
 
-
-
-
-//public stuff
-    public void startGame(){
-        keepGoing=true;
-    }
-
-
-
-    /**
-     * method is used to check if the command given by the player is an acceptable command and if the command has any characters that aren't letters
+    /**Josh
      *
-     * checks if first word is acceptable command
+     * deletes the save
+     *
      * @param s
-     * @return
      */
-    private Boolean checkIfIsCommand(String s){
-        try {
-            if ((ACCEPTABLE_COMMAND_STARTS.contains(s.split(" ")[0]) && !Pattern.matches("[^a-zA-Z]", s))||s.split(" ")[0].equals("PICK")&&s.split(" ")[1].equals("UP"))
-                return true;
-        }catch (NullPointerException e){
-            return false;
-        }
-
-        return false;
-
+    public void deleteSave(String s) {
+        saveUtility.deleteSave(s);
+        loadGameButton();
     }
+
+
+//command stuff
+
+
+
 
 
 

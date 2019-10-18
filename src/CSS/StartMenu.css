@@ -1,6 +1,7 @@
 #subMenuPane{
     -fx-pref-width: 1000;
     -fx-pref-height: 800;
+    -fx-alignment: center;
 }
 
 #menuPane{
@@ -37,5 +38,19 @@
 
 #enterButton{
 
+}
+
+#savesPane{
+-fx-alignment: center;
+    -fx-spacing: 5;
+}
+
+#savesHBox{
+-fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+#error{
+    -fx-text-fill: red;
 }
 
