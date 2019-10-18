@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c399d8b-8ab7-4959-b4d9-49f01196477d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Model.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -28,7 +28,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../game1.5" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="settings.css.dialects" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joshb\Documents\OpperationSnowStorm\OpperationSnowStorm" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,7 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Model">
+  <component name="RunManager" selected="Application.Runner">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="OpperationSnowStorm" />
@@ -58,7 +65,7 @@
       <module name="OpperationSnowStorm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="base.ModelStuff.*" />
+          <option name="PATTERN" value="base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -66,8 +73,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Runner" />
+      <module name="OpperationSnowStorm" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Model" />
       </list>
     </recent_temporary>
@@ -90,7 +105,15 @@
       <workItem from="1569850184221" duration="514000" />
       <workItem from="1570161140424" duration="5398000" />
       <workItem from="1570201818739" duration="32000" />
-      <workItem from="1570205152662" duration="492000" />
+      <workItem from="1570205152662" duration="544000" />
+      <workItem from="1570423927857" duration="50000" />
+      <workItem from="1570505644652" duration="3851000" />
+      <workItem from="1570806675152" duration="3590000" />
+      <workItem from="1571065926025" duration="3862000" />
+      <workItem from="1571082338136" duration="2107000" />
+      <workItem from="1571085222916" duration="20000" />
+      <workItem from="1571085373184" duration="1056000" />
+      <workItem from="1571244559731" duration="11907000" />
     </task>
     <servers />
   </component>
