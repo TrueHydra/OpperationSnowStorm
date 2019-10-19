@@ -1,4 +1,8 @@
-
+/**
+ * saved as
+ * f;id;name;saturation
+ *
+ */
 
 package base.ModelStuff.Storage.Items;
 
@@ -6,8 +10,10 @@ public class
 FoodItem extends Item{
 
     private int saturation;
+    public FoodItem(){
+    }
 
-    public FoodItem(String id,String name,int saturation){
+    public FoodItem(int id,String name,int saturation){
         super(id,name);
         this.saturation=saturation;
     }
@@ -20,5 +26,16 @@ FoodItem extends Item{
      */
     public int use(){
         return saturation;
+    }
+
+    @Override
+    public String getSaveString(){
+        return "f;"+getId()+";"+getName()+";"+saturation;
+    }
+
+
+    public static FoodItem getFromString(String saveString){
+        String[] split=saveString.split(";");
+        return new FoodItem(Integer.parseInt(split[1]),split[2],Integer.parseInt(split[3]));
     }
 }

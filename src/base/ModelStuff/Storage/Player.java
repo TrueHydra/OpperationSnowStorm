@@ -9,9 +9,16 @@
 
 package base.ModelStuff.Storage;
 
+import base.ModelStuff.Storage.Items.FoodItem;
 import base.ModelStuff.Storage.Items.Item;
 import base.ModelStuff.Storage.Items.Weapon;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -19,14 +26,22 @@ public class Player extends Observable implements Saveable {
 
     private int health;
     private Room currentRoom;
-    private HashMap<String,Item> inventory;
+    private ArrayList<Item> inventory;
     private Weapon weapon;
+    private boolean isAttacking,isExamining;
 
     public Player() {
         super();
+        health=100;
+        currentRoom=new Room();
+        inventory=new ArrayList<>();
+        weapon=new Weapon();
+        isExamining=false;
+        isAttacking=false;
     }
 
-    public Player(int health, Room currentRoom, HashMap<String,Item> inventory, Weapon weapon) {
+    public Player(int health, Room currentRoom, ArrayList<Item> inventory, Weapon weapon) {
+        super();
         this.health = health;
         this.currentRoom = currentRoom;
         this.inventory = inventory;
@@ -52,6 +67,7 @@ public class Player extends Observable implements Saveable {
      */
     public void addItemToInventory(Item item){
         System.out.println("needs done add To Inventory");
+        inventory.add(item);
     }
 
 
@@ -145,7 +161,7 @@ public class Player extends Observable implements Saveable {
      *
      * @return
      */
-    public HashMap<String,Item> getInventory() {
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 
@@ -171,17 +187,68 @@ public class Player extends Observable implements Saveable {
         return false;
     }
 
+//saveing and loading stuff
 
 
-
+    /**Josh
+     *
+     * saves the player in the saves folder under the saveName
+     *
+     * @param saveName
+     */
     @Override
     public void save(String saveName) {
+        File file=new File("saves\\"+saveName+"\\Player.txt");
+        try {
+            FileWriter fr = new FileWriter(file);
+            fr.write(toString());
+            fr.close();
+        }catch (IOException e){
+            System.out.println(e);
+        }
+    }
+
+    /**Josh
+     *
+     * needs room part done
+     *
+     * loads in the saves player
+     *
+     * @param saveName
+     */
+    @Override
+    public void load(String saveName) {
+        File f=new File("saves\\"+saveName+"\\Player.txt");
+        try{
+            Scanner s=new Scanner(f);
+            String[] stuff=s.nextLine().split(",");
+            //System.out.println(Arrays.toString(stuff));
+            health=Integer.parseInt(stuff[0]);
+            weapon=Weapon.getFromString(stuff[1]);
+            inventory=Item.getInventoryFromString(stuff[2]);
+            //currentRoom=Room.getFromId(Integer.parseInt(stuff[3]));
+            currentRoom=new Room();
+            isAttacking=Boolean.parseBoolean(stuff[4]);
+            isExamining=Boolean.parseBoolean(stuff[5]);
+        }catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+
 
     }
 
-    @Override
-    public void load(String saveName) {
+    public String toString(){
+        return health+","+weapon.getSaveString()+","+Item.getInventoryString(inventory)+","+currentRoom.getId()+","+isAttacking+","+isExamining;
+    }
 
+    public static void main(String[] args) {
+        Player p =new Player();
+        p.addItemToInventory(new Item());
+        p.addItemToInventory(new Weapon(0,"weapon ",1,2));
+        p.addItemToInventory(new FoodItem(1,"food adjoasjdao s",4));
+        System.out.println(p.inventory.size());
+        p.load("as");
+        System.out.println(p);
     }
 
 

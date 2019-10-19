@@ -8,11 +8,14 @@
 
 package base.ModelStuff.Storage;
 
+import javafx.scene.layout.Pane;
+
 import java.util.Observable;
 
 public class Puzzle extends Observable implements Saveable{
 
-    private String puzzleText,solution, puzzleResponse,id;
+    private int id;
+    private String puzzleText,solution, puzzleResponse;
     private boolean beenSolved;
 
     public Puzzle(){
@@ -20,7 +23,11 @@ public class Puzzle extends Observable implements Saveable{
 
     }
 
-    public Puzzle(String puzzleText, String solution, String puzzleResponse, String id,boolean beenSolved){
+    public Puzzle(int i){
+        id=i;
+    }
+
+    public Puzzle(String puzzleText, String solution, String puzzleResponse, int id,boolean beenSolved){
         this.puzzleResponse = puzzleResponse;
         this.puzzleText=puzzleText;
         this.solution=solution;
@@ -73,6 +80,9 @@ public class Puzzle extends Observable implements Saveable{
         return beenSolved;
     }
 
+    public int getId() {
+        return id;
+    }
     @Override
     public void save(String saveName) {
 
@@ -82,4 +92,6 @@ public class Puzzle extends Observable implements Saveable{
     public void load(String saveName) {
 
     }
+
+
 }

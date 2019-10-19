@@ -1,27 +1,44 @@
+/**
+ *
+ * saved as
+ *
+ * id,name,desc,Monster(id),puzzle(id),Connections(main redux ! second ; ... holds name of connection with the room it connects to),hasBeenVisited,inventory(saved same as in player)
+ *
+ */
 package base.ModelStuff.Storage;
 
 import base.ModelStuff.Storage.Items.Item;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Observable;
+import java.io.File;
+import java.util.*;
 
-public class Room extends Observable implements Saveable{
+public class Room extends Observable{
 
-    private String name,description,id;
+    private int id;
+    private String name,description;
     private Monster monster;
     private Puzzle puzzle;
     private HashMap<String,Room> connections;
     private boolean hasBeenVisited;
-    private HashMap<String,Item> inventory;
+    private ArrayList<Item> inventory;
 
     public Room(){
         super();
-
+        id=0;
+        name="name";
+        description="desc";
+        monster=new Monster();
+        puzzle=new Puzzle();
+        connections=new HashMap<>();
+        hasBeenVisited=false;
+        inventory=new ArrayList<>();
     }
 
-    public Room(String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Room> connections,boolean hasBeenVisited,String id, HashMap<String,Item> inventory){
+    public Room(int i){
+        id=i;
+    }
+
+    public Room(int id,String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Room> connections,boolean hasBeenVisited, ArrayList<Item> inventory){
         this.name=name;
         this.description=description;
         this.monster=monster;
@@ -32,17 +49,13 @@ public class Room extends Observable implements Saveable{
         this.inventory=inventory;
     }
 
-    /**
-     * creates a room from the saved string
-     *
-     * @param saveString
-     */
-    public Room(String saveString){
-        System.out.println("needs done:: room creat from save string");
-
-    }
 
 //get methods
+
+
+    public int getId() {
+        return id;
+    }
 
     /**Josh
      *
@@ -98,7 +111,7 @@ public class Room extends Observable implements Saveable{
      *
      * @return
      */
-    public HashMap<String, Item> getInventory() {
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 
@@ -108,7 +121,7 @@ public class Room extends Observable implements Saveable{
      *
      * @return
      */
-    public HashMap<String, Room> getConnections() {
+    public HashMap<String,Room> getConnections() {
         return connections;
     }
 
@@ -143,13 +156,49 @@ public class Room extends Observable implements Saveable{
         hasBeenVisited=true;
     }
 
-    @Override
-    public void save(String saveName) {
+//save/load stuff
 
+    /**Josh
+     *
+     * creates a room from a string
+     *
+     * @param str
+     * @return
+     */
+    public static Room createRoomFromString(String str){
+        String[] s=str.split(",");
+    //    System.out.println(str);
+     //   System.out.println(Arrays.toString(s));
+        return new Room(Integer.parseInt(s[0]),s[1],s[2],new Monster(Integer.parseInt(s[3])),new Puzzle(Integer.parseInt(s[4])),createConnectionsFromString(s[5]),Boolean.parseBoolean(s[6]),Item.getInventoryFromString(s[7]));
     }
 
-    @Override
-    public void load(String saveName) {
-
+    private static HashMap<String,Room> createConnectionsFromString(String str){
+        HashMap<String,Room> temp=new HashMap<>();
+        if(str.length()==0)
+            return temp;
+        String[] s=str.split("!");
+        for(String st:s){
+            String[] ss=st.split(";");
+            temp.put(ss[0],new Room(Integer.parseInt(ss[1])));
+        }
+        return temp;
     }
+
+
+    private String connectionsString(){
+        if(connections.size()==0){
+            return "";
+        }
+        String rtn="";
+        for(String i:connections.keySet()){
+            rtn=rtn+"!"+i+";"+connections.get(i).id;
+        }
+        return rtn.substring(1);
+    }
+
+    public String toString(){
+        return id+","+name+","+description+","+monster.getId()+","+puzzle.getId()+","+connectionsString()+","+hasBeenVisited+","+Item.getInventoryString(inventory)+" ,";
+    }
+
+
 }

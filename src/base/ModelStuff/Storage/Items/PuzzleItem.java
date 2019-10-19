@@ -10,7 +10,7 @@ public class PuzzleItem extends Item{
     public PuzzleItem(){}
 
 
-    public PuzzleItem(String id,String name,HashMap<String[],String> results){
+    public PuzzleItem(int id,String name,HashMap<String[],String> results){
         super(id,name);
         this.results=results;
     }

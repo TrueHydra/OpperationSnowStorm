@@ -1,7 +1,7 @@
 /**
  * saves by line in format
  *
- * id,health,damage,name
+ * id,name,health,damage
  *
  *
  */
@@ -12,20 +12,35 @@ import javafx.application.Platform;
 
 import java.util.Observable;
 
-public class Monster extends Observable implements Saveable{
+public class Monster extends Observable{
 
-    private String name,id;
+    private int id;
+    private String name;
     private int health,damage;
 
     public Monster(){
         super();
     }
 
-    public Monster(String name,String id,int health,int damage){
+    public Monster(int id){
+        super();
+        this.id=id;
+    }
+
+    public Monster(int id,String name,int health,int damage){
         this.name=name;
         this.id=id;
         this.health=health;
         this.damage=damage;
+    }
+
+    public static Monster createFromString(String str) {
+        String[] s=str.split(",");
+        return new Monster(Integer.parseInt(s[0]),s[1],Integer.parseInt(s[2]),Integer.parseInt(s[3]));
+    }
+
+    public  int getId() {
+        return id;
     }
 
 //public methods
@@ -70,13 +85,12 @@ public class Monster extends Observable implements Saveable{
         System.out.println("attack player");
     }
 
-    @Override
-    public void save(String saveName) {
 
-    }
+//save/load stuff
 
     @Override
-    public void load(String saveName){
-
+    public String toString() {
+        return id+","+name+","+health+";"+damage;
     }
+
 }
