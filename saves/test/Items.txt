@@ -1,0 +1,3 @@
+i,0,name
+w,1,test weapon,5,5
+f,2,test food,5

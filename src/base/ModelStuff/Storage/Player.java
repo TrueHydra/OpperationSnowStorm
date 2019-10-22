@@ -22,7 +22,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 
-public class Player extends Observable implements Saveable {
+public class Player extends Observable {
 
     private int health;
     private Room currentRoom;
@@ -196,7 +196,6 @@ public class Player extends Observable implements Saveable {
      *
      * @param saveName
      */
-    @Override
     public void save(String saveName) {
         File file=new File("saves\\"+saveName+"\\Player.txt");
         try {
@@ -208,26 +207,25 @@ public class Player extends Observable implements Saveable {
         }
     }
 
-    /**Josh
-     *
-     * needs room part done
-     *
-     * loads in the saves player
-     *
-     * @param saveName
-     */
-    @Override
-    public void load(String saveName) {
+
+    public void load(String saveName,HashMap<Integer,Item> items,HashMap<Integer,Room> rooms) {
+
         File f=new File("saves\\"+saveName+"\\Player.txt");
         try{
             Scanner s=new Scanner(f);
             String[] stuff=s.nextLine().split(",");
             //System.out.println(Arrays.toString(stuff));
             health=Integer.parseInt(stuff[0]);
-            weapon=Weapon.getFromString(stuff[1]);
-            inventory=Item.getInventoryFromString(stuff[2]);
+            if(stuff[1].equals(""))
+                weapon=new Weapon();
+            else
+                weapon=(Weapon)items.get(Integer.parseInt(stuff[1]));
+            if(stuff[2].equals(""))
+                inventory=new ArrayList<>();
+            else
+                inventory=Item.getInventoryFromStringAndItemsList(stuff[2],items);
             //currentRoom=Room.getFromId(Integer.parseInt(stuff[3]));
-            currentRoom=new Room();
+            currentRoom=rooms.get(Integer.parseInt(stuff[3]));
             isAttacking=Boolean.parseBoolean(stuff[4]);
             isExamining=Boolean.parseBoolean(stuff[5]);
         }catch (FileNotFoundException e){
@@ -247,7 +245,7 @@ public class Player extends Observable implements Saveable {
         p.addItemToInventory(new Weapon(0,"weapon ",1,2));
         p.addItemToInventory(new FoodItem(1,"food adjoasjdao s",4));
         System.out.println(p.inventory.size());
-        p.load("as");
+        //p.load("as");
         System.out.println(p);
     }
 

@@ -1,3 +1,4 @@
+0,no monster,0,0
 1,Security Guard,16,5
 2,Floor Manager,32,5
 3,Frank,64,5

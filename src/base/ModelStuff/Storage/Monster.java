@@ -90,7 +90,7 @@ public class Monster extends Observable{
 
     @Override
     public String toString() {
-        return id+","+name+","+health+";"+damage;
+        return id+","+name+","+health+","+damage;
     }
 
 }

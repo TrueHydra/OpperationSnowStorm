@@ -1,5 +1,6 @@
 package base;
 
+import base.ModelStuff.Storage.Map;
 import base.ModelStuff.Storage.Player;
 import base.ModelStuff.Storage.Room;
 import com.sun.xml.internal.ws.api.server.EndpointReferenceExtensionContributor;
@@ -24,7 +25,7 @@ import java.util.regex.Pattern;
 public class Controller {
 
     private Player player;
-    private HashMap<Integer, Room> rooms;
+    private Map map;
 
 
     private boolean keepGoing=false;
@@ -32,8 +33,6 @@ public class Controller {
     private SaveUtility saveUtility;
 
 
-    private static String[] hold=new String[]{"START","QUIT","SAVE","LOAD","HELP","HEALTH","CONSUME","USE","EQUIP","PICKUP","DROP","OBSERVE","ATTACK","ESCAPE","EXAMINE","SOLVE","ENTER","LOOK"};
-    private static final HashSet<String> ACCEPTABLE_COMMAND_STARTS=new HashSet<>(Arrays.asList(hold));
 
     public Controller(Stage primaryStage){
        this.gui=new GUI(primaryStage,this);
@@ -84,7 +83,17 @@ public class Controller {
      * @param s
      */
     public void loadGameEnter(String s){
-        System.out.println(s);
+        saveUtility.loadSave(s);
+        map=new Map();
+        map.load(s);
+    //    System.out.println("map loaded");
+        player=new Player();
+        player.load(s,map.getItems(),map.getRooms());
+     //   System.out.println("player loaded");
+        player.addObserver(gui);
+        map.addObserver(gui);
+        System.out.println("loaded observers");
+        gui.showGameScene();
     }
 
     /**Josh
@@ -98,8 +107,16 @@ public class Controller {
         loadGameButton();
     }
 
+//esc menu stuff
+    public void saveButton(){
+        System.out.println("saveButtom");
+    }
 
 //command stuff
+
+    public void ready(){
+
+    }
 
 
 

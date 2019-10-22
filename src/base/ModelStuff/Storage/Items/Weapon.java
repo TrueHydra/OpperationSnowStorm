@@ -46,13 +46,24 @@ public class Weapon extends Item {
 
     }
 
-    @Override
-    public String getSaveString(){
-        return "w;"+getId()+";"+getName()+";"+damage+";"+usesRemaining;
+    public void setUsesRemaining(int usesRemaining){
+        this.usesRemaining=usesRemaining;
     }
 
+    @Override
+    public String getSaveString(){
+        return "w,"+getId()+","+getName()+","+damage+","+usesRemaining;
+    }
+
+    /**Josh
+     *
+     * splits the savestroing and returns a weapon from it
+     *
+     * @param saveString
+     * @return
+     */
     public static Weapon getFromString(String saveString){
-        String[] split=saveString.split(";");
+        String[] split=saveString.split(",");
         return new Weapon(Integer.parseInt(split[1]),split[2],Integer.parseInt(split[3]),Integer.parseInt(split[4]));
     }
 

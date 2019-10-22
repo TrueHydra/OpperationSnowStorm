@@ -30,12 +30,19 @@ FoodItem extends Item{
 
     @Override
     public String getSaveString(){
-        return "f;"+getId()+";"+getName()+";"+saturation;
+        return "f,"+getId()+","+getName()+","+saturation;
     }
 
 
+    /**Josh
+     *
+     * returns a food item from that is created from the string
+     *
+     * @param saveString
+     * @return
+     */
     public static FoodItem getFromString(String saveString){
-        String[] split=saveString.split(";");
+        String[] split=saveString.split(",");
         return new FoodItem(Integer.parseInt(split[1]),split[2],Integer.parseInt(split[3]));
     }
 }

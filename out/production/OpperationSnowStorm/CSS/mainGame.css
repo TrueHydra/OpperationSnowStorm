@@ -1,0 +1,9 @@
+#overAllPane{
+    -fx-pref-width: 1000;
+    -fx-pref-height: 800;
+}
+
+#escButton{
+    -fx-translate-x: 460;
+    -fx-translate-y: -370;
+}

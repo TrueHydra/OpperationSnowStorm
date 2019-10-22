@@ -10,9 +10,12 @@ package base.ModelStuff.Storage;
 
 import javafx.scene.layout.Pane;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Observable;
 
-public class Puzzle extends Observable implements Saveable{
+public class Puzzle extends Observable{
 
     private int id;
     private String puzzleText,solution, puzzleResponse;
@@ -83,14 +86,26 @@ public class Puzzle extends Observable implements Saveable{
     public int getId() {
         return id;
     }
-    @Override
-    public void save(String saveName) {
 
+    /**Josh
+     *
+     * is used to create a puzzle from the string in which the puzzle is saved
+     *
+     * @param saveString
+     * @return
+     */
+    public static Puzzle getPuzzleFromString(String saveString){
+        String[] split=saveString.split("/");
+       // System.out.println(Arrays.toString(split));
+        return new Puzzle(split[1],split[2],split[3],Integer.parseInt(split[0]),Boolean.parseBoolean(split[4]));
     }
 
-    @Override
-    public void load(String saveName) {
+    public String getPuzzleSaveString(){
+        return toString();
+    }
 
+    public String toString(){
+        return id+"/"+puzzleText+"/"+solution+"/"+puzzleResponse+"/"+beenSolved;
     }
 
 

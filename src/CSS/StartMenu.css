@@ -48,9 +48,12 @@
 #savesHBox{
 -fx-alignment: center;
     -fx-spacing: 10;
+    -fx-pref-height: 100;
 }
 
 #error{
     -fx-text-fill: red;
 }
+
+
 

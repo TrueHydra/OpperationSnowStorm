@@ -1,13 +1,15 @@
 /**
  *
- * saved as item type(f,w,p);id;name;rest is dependent on type
+ * saved as item in player/rooms id
+ *
+ * saved in items file type(f,w,p),name,stuff from specific item type
+ *
  *
  */
 
 package base.ModelStuff.Storage.Items;
 
-import base.ModelStuff.Storage.Saveable;
-import com.sun.corba.se.spi.ior.IORTemplate;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +24,10 @@ public class Item extends Observable{
         super();
         id=0;
         name="test";
+    }
+
+    public Item(int id){
+        this.id=id;
     }
 
     public Item(int id,String name){
@@ -60,8 +66,10 @@ public class Item extends Observable{
      * @return
      */
     public String getSaveString(){
-        return "i;"+id+";"+name;
+        return "i,"+id+","+name;
     }
+
+//static methods
 
     /**Josh
      *
@@ -72,50 +80,57 @@ public class Item extends Observable{
      */
     public static Item getFromString(String saveString){
 
-        String[] split=saveString.split(";");
-        return new Item(Integer.parseInt(split[1]),split[2]);
+        System.out.println("needs work puzzle item");
+        String[] split=saveString.split(",");
+        if(split.length==1)
+            return new Item(Integer.parseInt(split[0]));
+        if(split[0].trim().equals("i"))
+            return new Item(Integer.parseInt(split[1]),split[2]);
+        if(split[0].trim().equals("w"))
+            return Weapon.getFromString(saveString);
+        if(split[0].trim().equals("f"))
+            return FoodItem.getFromString(saveString);
+        if(split[0].trim().equals("p")){
+            return new PuzzleItem();
+        }
+        return new Item();
     }
 
     public static String getInventoryString(ArrayList<Item> inventory){
+
         String rtn="";
         if(inventory.size()==0)
             return rtn;
         for(Item i:inventory){
-            rtn=rtn+"!"+i.getSaveString();
+            rtn=rtn+";"+i.id;
         }
         rtn=rtn.substring(1);
         return rtn;
     }
 
-
     /**Josh
      *
-     * creates the hasmap of items saved for the player
+     * returns the inventory based on a stirng and the items of the game
      *
-     * @param saveListString
+     * @param savedListString
+     * @param itemList
      * @return
      */
-    public static ArrayList<Item> getInventoryFromString(String saveListString){
-        saveListString=saveListString.trim();
-        ArrayList<Item> rtn=new ArrayList<>();
-        if(saveListString.length()==0)
-            return rtn;
-     //   System.out.println(saveListString);
+    public static ArrayList<Item> getInventoryFromStringAndItemsList(String savedListString,HashMap<Integer,Item> itemList){
+        ArrayList<Item> items=new ArrayList<>();
 
-        String[] split=saveListString.split("!");
-
-
+        String[] split=savedListString.split(";");
         for(String s:split){
-            if(s.charAt(0)=='w'){
-                rtn.add(Weapon.getFromString(s));
-            }else if(s.charAt(0)=='f'){
-                rtn.add(FoodItem.getFromString(s));
-            }else{
-                rtn.add(getFromString(s));
-            }
+            items.add(itemList.get(Integer.parseInt(s)));
         }
-        return rtn;
+        return items;
     }
 
-
+    @Override
+    public String toString() {
+        if(name==null){
+            return ""+id;
+        }
+        return id+","+name;
+    }
 }

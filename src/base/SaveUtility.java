@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class SaveUtility {
@@ -20,6 +21,10 @@ public class SaveUtility {
 
     public SaveUtility(){
         createPath();
+    }
+
+    public String getCurrentSaveName(){
+        return currentSaveName;
     }
 
     /**
@@ -114,14 +119,6 @@ public class SaveUtility {
 
     public void loadSave(String saveName){
         currentSaveName=saveName;
-        loadMonsters();
-        loadItems();
-        loadRooms();
-    }
-
-    public void save(){
-        saveRooms();
-        saveMonsters();
     }
 
 //deleting save
@@ -142,196 +139,6 @@ public class SaveUtility {
         }
         return dir.delete();
     }
-
-//Room Stuff
-    HashMap<Integer, Room> rooms=new HashMap<>();
-
-    public HashMap<Integer,Room> getRooms() {
-        return rooms;
-    }
-
-    //not tested
-    /**Josh
-     *
-     * loads the rooms from currentSave
-     *
-     * needs to create the rooms add the connections and
-     */
-    private void loadRooms(){
-        rooms=new HashMap<Integer, Room>();
-        File f=new File("saves\\"+currentSaveName+"\\Room.txt");
-        try{
-            Scanner s=new Scanner(f);
-
-            ArrayList<String> roomsStrings=new ArrayList<>();
-            while(s.hasNextLine()){
-                roomsStrings.add(s.nextLine());
-            }
-
-            System.out.println(roomsStrings);
-
-            for(String str:roomsStrings){
-                Room temp=Room.createRoomFromString(str);
-             //   System.out.println(temp);
-                rooms.put(temp.getId(),temp);
-            }
-
-            //creates the connections, adds items, adds puzzle, adds monsters
-
-            //may be incorrect
-            for(Integer i:rooms.keySet()){
-
-                //creates the connections
-                for(String t:rooms.get(i).getConnections().keySet()){
-                    //adds a new connection to the rooms connections that has the same string but a real room attached
-                    rooms.get(i).getConnections().put(
-                            t,rooms.get(rooms.get(i).getConnections().get(t).getId())
-                    );
-                }
-                for(Item it:rooms.get(i).getInventory()){
-
-                }
-            }
-
-        }catch (FileNotFoundException e){
-            System.out.println(e);
-        }
-    }
-
-    //not tested
-    /**josh
-     *
-     * saves the rooms in the game
-     *
-     */
-    private void saveRooms(){
-        File f=new File("saves\\"+currentSaveName+"\\Room.txt");
-        try{
-            FileWriter fr=new FileWriter(f);
-
-            String saveString="";
-            for(Integer i:rooms.keySet()){
-                saveString=saveString+rooms.get(i)+"\n";
-            }
-            fr.write(saveString);
-            fr.close();
-        }catch (IOException e){
-            System.out.println(e);
-        }
-    }
-
-//monster Stuff
-    HashMap<Integer, Monster> monsters=new HashMap<>();
-
-    //not Tested
-    /**Josh
-     *
-     * loads in the monsters allows the monsters to be added to the rooms
-     *
-     *
-     *
-     */
-    private void loadMonsters(){
-        monsters=new HashMap<>();
-        File f=new File("saves\\"+currentSaveName+"\\Monsters.txt");
-        try{
-            Scanner s=new Scanner(f);
-
-            ArrayList<String> monsterStrings=new ArrayList<>();
-            while(s.hasNextLine()){
-                monsterStrings.add(s.nextLine());
-            }
-
-            System.out.println(monsterStrings);
-
-            for(String str:monsterStrings){
-                Monster temp=Monster.createFromString(str);
-                monsters.put(temp.getId(),temp);
-            }
-
-        }catch (FileNotFoundException e){
-            System.out.println(e);
-        }
-    }
-
-    //not tested
-    /**Josh
-     *
-     * saves the monsters in the monster folder under the current save
-     *
-     */
-    private void saveMonsters(){
-        File f=new File("saves\\"+currentSaveName+"\\Monster.txt");
-        try{
-            FileWriter fr=new FileWriter(f);
-
-            String saveString="";
-            for(Integer i:monsters.keySet()){
-                saveString=saveString+monsters.get(i)+"\n";
-            }
-            fr.write(saveString);
-            fr.close();
-        }catch (IOException e){
-            System.out.println(e);
-        }
-    }
-
-//item stuff
-    HashMap<Integer, Item> items=new HashMap<>();
-
-    //not tested
-    private void loadItems(){
-        items=new HashMap<>();
-        File f=new File("saves\\"+currentSaveName+"\\Items.txt");
-        try{
-            Scanner s=new Scanner(f);
-
-            ArrayList<String> itemStrings=new ArrayList<>();
-            while(s.hasNextLine()){
-                itemStrings.add(s.nextLine());
-            }
-
-            System.out.println(itemStrings);
-
-            for(String str:itemStrings){
-                Item temp=Item.getFromString(str);
-                items.put(temp.getId(),temp);
-            }
-
-        }catch (FileNotFoundException e){
-            System.out.println(e);
-        }
-    }
-
-    //not tested
-    private void saveItems(){
-        File f=new File("saves\\"+currentSaveName+"\\Items.txt");
-        try{
-            FileWriter fr=new FileWriter(f);
-
-            String saveString="";
-            for(Integer i:items.keySet()){
-                saveString=saveString+items.get(i).getSaveString()+"\n";
-            }
-            fr.write(saveString);
-            fr.close();
-        }catch (IOException e){
-            System.out.println(e);
-        }
-    }
-
-    public HashMap<Integer,Item> getItems(){
-        return items;
-    }
-
-
-    public static void main(String[] args) {
-        SaveUtility saveUtility=new SaveUtility();
-
-        saveUtility.loadSave("as");
-        System.out.println(saveUtility.getRooms());
-    }
-
 
 
 }

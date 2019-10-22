@@ -1,5 +1,7 @@
 package base;
 
+import base.ModelStuff.Storage.Player;
+import com.sun.prism.GraphicsPipeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -8,15 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import javax.xml.soap.Text;
+import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.zip.GZIPOutputStream;
 
 public class GUI implements Observer {
 
@@ -35,6 +36,8 @@ public class GUI implements Observer {
         setupStartingMenuScene();
         setupNewGameScene();
         setupLoadGameMenu();
+        setupMainGameScene();
+        setUpEscMenu();
     }
 
     public void show(){
@@ -235,7 +238,7 @@ public class GUI implements Observer {
      *
      */
     Scene loadGameScene;
-    HBox savesPane;
+    VBox savesPane;
 
     /**Josh
      *
@@ -256,7 +259,7 @@ public class GUI implements Observer {
         title.setId("gameTitle");
         mainPane.getChildren().add(title);
 
-        savesPane=new HBox();
+        savesPane=new VBox();
         savesPane.setId("savesPane");
         mainPane.getChildren().add(savesPane);
 
@@ -281,8 +284,10 @@ public class GUI implements Observer {
      * @param saves
      */
     public void showLoadGameMenu(String[] saves){
+        System.out.println(Arrays.toString(saves));
         savesPane.getChildren().clear();
         for(String s:saves){
+
             HBox temp=new HBox();
             temp.setId("savesHBox");
 
@@ -301,11 +306,11 @@ public class GUI implements Observer {
             delete.setId("loadButton");
             delete.setOnAction(e->controller.deleteSave(s));
             temp.getChildren().add(delete);
+            temp.setVisible(true);
 
             savesPane.getChildren().add(temp);
+            savesPane.setVisible(true);
         }
-
-
         primaryStage.setScene(loadGameScene);
     }
 
@@ -317,12 +322,115 @@ public class GUI implements Observer {
 
 
 //main game stuff
+    //uses mainGame.css
+    Scene mainGameScene;
+    VBox textPane;
+    GridPane buttonsPane;
 
     @Override
     public void update(Observable o, Object arg) {
+        if(o instanceof Player){
 
+        }
+        controller.ready();
+    }
+
+
+    /**Josh
+     *
+     * css:
+     *      escButton
+     *      basePane
+     *      overAllPane
+     *
+     */
+    private void setupMainGameScene(){
+        StackPane overAllPane=new StackPane();
+        overAllPane.setId("overAllPane");
+
+
+
+        GridPane basePane=new GridPane();
+        basePane.setId("basePane");
+        overAllPane.getChildren().add(basePane);
+
+        Button escButton=new Button("esc");
+        escButton.setId("escButton");
+       escButton.setOnAction(e->showEscMenu());
+        overAllPane.getChildren().add(escButton);
+
+
+
+
+
+        mainGameScene=new Scene(overAllPane);
+        mainGameScene.getStylesheets().add("CSS/mainGame.css");
+
+    }
+
+    public void showGameScene() {
+    //    primaryStage.hide();
+        primaryStage.setScene(mainGameScene);
+        primaryStage.show();
+    }
+
+
+
+//esc menu stuff
+    //uses escMenu.css
+    Scene escMenu;
+
+    /**Josh
+     *
+     * css:
+     *      mainPane
+     *      button
+     *
+     */
+
+    private void setUpEscMenu(){
+
+        VBox paneMain=new VBox();
+        paneMain.setId("otherPane");
+
+
+        Button saveButton=new Button("Save");
+        saveButton.setId("button");
+        saveButton.setOnAction(e->controller.saveButton());
+        paneMain.getChildren().add(saveButton);
+
+
+
+
+
+        Button exitButton=new Button("Exit");
+        exitButton.setId("button");
+        exitButton.setOnAction(e->showStartMenu());
+        paneMain.getChildren().add(exitButton);
+
+        Button returnButton=new Button("Return");
+        returnButton.setId("button");
+        returnButton.setOnAction(e->showGameScene());
+        paneMain.getChildren().add(returnButton);
+
+
+
+
+
+
+
+        escMenu=new Scene(paneMain);
+        escMenu.getStylesheets().add("CSS/escMenu.css");
+
+
+    }
+
+    public void showEscMenu(){
+        primaryStage.setScene(escMenu);
     }
 
 
 
 }
+
+

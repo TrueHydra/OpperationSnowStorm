@@ -18,7 +18,7 @@ public class Room extends Observable{
     private String name,description;
     private Monster monster;
     private Puzzle puzzle;
-    private HashMap<String,Room> connections;
+    private HashMap<String,Integer> connections;
     private boolean hasBeenVisited;
     private ArrayList<Item> inventory;
 
@@ -38,7 +38,7 @@ public class Room extends Observable{
         id=i;
     }
 
-    public Room(int id,String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Room> connections,boolean hasBeenVisited, ArrayList<Item> inventory){
+    public Room(int id,String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Integer> connections,boolean hasBeenVisited, ArrayList<Item> inventory){
         this.name=name;
         this.description=description;
         this.monster=monster;
@@ -121,7 +121,7 @@ public class Room extends Observable{
      *
      * @return
      */
-    public HashMap<String,Room> getConnections() {
+    public HashMap<String,Integer> getConnections() {
         return connections;
     }
 
@@ -165,21 +165,22 @@ public class Room extends Observable{
      * @param str
      * @return
      */
-    public static Room createRoomFromString(String str){
-        String[] s=str.split(",");
-    //    System.out.println(str);
-     //   System.out.println(Arrays.toString(s));
-        return new Room(Integer.parseInt(s[0]),s[1],s[2],new Monster(Integer.parseInt(s[3])),new Puzzle(Integer.parseInt(s[4])),createConnectionsFromString(s[5]),Boolean.parseBoolean(s[6]),Item.getInventoryFromString(s[7]));
+    public static Room createRoomFromString(String str,HashMap<Integer,Monster> monsters,HashMap<Integer,Item> items,HashMap<Integer,Puzzle> puzzles){
+        String[] split=str.split(",");
+        if(split.length==7)
+            return new Room(Integer.parseInt(split[0]),split[1],split[2],monsters.get(Integer.parseInt(split[3])),puzzles.get(Integer.parseInt(split[4])),createConnectionsFromString(split[5]),Boolean.parseBoolean(split[6]),new ArrayList<>());
+
+       return new Room(Integer.parseInt(split[0]),split[1],split[2],monsters.get(Integer.parseInt(split[3])),puzzles.get(Integer.parseInt(split[4])),createConnectionsFromString(split[5]),Boolean.parseBoolean(split[6]),Item.getInventoryFromStringAndItemsList(split[7],items));
     }
 
-    private static HashMap<String,Room> createConnectionsFromString(String str){
-        HashMap<String,Room> temp=new HashMap<>();
+    private static HashMap<String,Integer> createConnectionsFromString(String str){
+        HashMap<String,Integer> temp=new HashMap<>();
         if(str.length()==0)
             return temp;
         String[] s=str.split("!");
         for(String st:s){
             String[] ss=st.split(";");
-            temp.put(ss[0],new Room(Integer.parseInt(ss[1])));
+            temp.put(ss[0],Integer.parseInt(ss[1]));
         }
         return temp;
     }
@@ -191,14 +192,28 @@ public class Room extends Observable{
         }
         String rtn="";
         for(String i:connections.keySet()){
-            rtn=rtn+"!"+i+";"+connections.get(i).id;
+            rtn=rtn+"!"+i+";"+connections.get(i);
         }
         return rtn.substring(1);
     }
 
     public String toString(){
-        return id+","+name+","+description+","+monster.getId()+","+puzzle.getId()+","+connectionsString()+","+hasBeenVisited+","+Item.getInventoryString(inventory)+" ,";
+        return id+","+name+","+description+","+monster.getId()+","+puzzle.getId()+","+connectionsString()+","+hasBeenVisited+","+Item.getInventoryString(inventory);
     }
+
+    //makes the room string
+    public static void main(String[] args){
+        HashMap<String, Room> con=new HashMap<>();
+        con.put("door to 1",new Room(1));
+        con.put("door to 2",new Room(2));
+        ArrayList<Item> inv=new ArrayList<>();
+        //inv.add(new Item(1));
+        //inv.add(new Item(2));
+  //      Room r=new Room(3,"test 3","test room 3:has Monster",new Monster(1),new Puzzle(0),con,false,inv);
+       // System.out.println(r);
+    }
+
+
 
 
 }
