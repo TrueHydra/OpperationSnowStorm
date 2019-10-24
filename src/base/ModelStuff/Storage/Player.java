@@ -2,7 +2,7 @@
  *
  * player text save format:
  *
- * health,weapon(itemId),inventory(itemId)(seperated by '!'),currentRoom(roomId),is attacking,isexaming a puzzle6
+ * health,weapon(itemId),inventory(itemId)(seperated by '!'),currentRoom(roomId),is attacking,isexaming a puzzle6,baseAttack
  *
  *
  */
@@ -24,7 +24,7 @@ import java.util.*;
 
 public class Player extends Observable {
 
-    private int health;
+    private int health,baseAttack;
     private Room currentRoom;
     private ArrayList<Item> inventory;
     private Weapon weapon;
@@ -40,12 +40,13 @@ public class Player extends Observable {
         isAttacking=false;
     }
 
-    public Player(int health, Room currentRoom, ArrayList<Item> inventory, Weapon weapon) {
+    public Player(int health, Room currentRoom, ArrayList<Item> inventory, Weapon weapon,int baseAttack) {
         super();
         this.health = health;
         this.currentRoom = currentRoom;
         this.inventory = inventory;
         this.weapon = weapon;
+        this.baseAttack=baseAttack;
     }
 
     /**
@@ -76,7 +77,14 @@ public class Player extends Observable {
      * @param monster
      */
     public void attackMonster(Monster monster){
-        System.out.println("needs done attack monster");
+        isAttacking=true;
+        monster.takeDamage(baseAttack+weapon.getDamage());
+        if(monster.getHealth()<=0){
+            currentRoom.setMonster(new Monster());
+            isAttacking=false;
+            setChanged();
+            notifyObservers();
+        }
     }
 
     /**takes in the damage from the monster
@@ -86,18 +94,37 @@ public class Player extends Observable {
      */
     public void takeDamage(int damage){
         System.out.println("needs done player take damage");
+        health=health-damage;
+        if(health<=0){
+            setChanged();
+            notifyObservers("Player has taken "+damage+"damage and has died.");
+            return;
+        }
+        setChanged();
+        notifyObservers("Player has taken "+damage+"damage.");
+
+    }
+
+    public void escapeFromAttacking(){
+        isAttacking=false;
     }
 
     /**
      * takes in string and returns item from the player inventory
      * if item not in inventory returns null
-     * does not remove item
+     *
      *
      * @param itemName
      * @return
      */
     public Item getItemFromInventory(String itemName){
-        System.out.println("needs done get item from inventory");
+        for(int i=0;i<inventory.size();i++){
+            if(inventory.get(i).getName().equals(itemName)){
+                Item rtn=inventory.get(i);
+                inventory.remove(i);
+                return rtn;
+            }
+        }
         return null;
     }
 
@@ -114,15 +141,19 @@ public class Player extends Observable {
         return null;
     }
 
-    /**
+    /**Josh
      * takes in weapon and extanges it for the currently equipt one then returns the prior equipt weapon
      *
      * @param weapon
-     * @return
      */
-    public Weapon equipWeapon(Weapon weapon){
-        System.out.println("equipWeapon");
-         return null;
+    public void equipWeapon(Weapon weapon){
+        if(this.weapon.getId()!=0)
+            inventory.add(this.weapon);
+        this.weapon=weapon;
+
+        setChanged();
+        notifyObservers("Player has equipped "+weapon.getName());
+
     }
 
     /**Josh
@@ -162,6 +193,18 @@ public class Player extends Observable {
      * @return
      */
     public ArrayList<Item> getInventory() {
+        if(inventory.size()==0){
+            setChanged();
+            notifyObservers("your invenotry is empty");
+        }else {
+            String s = "";
+            for (Item i : inventory) {
+                s = s + "\n" + i.getName();
+            }
+
+            setChanged();
+            notifyObservers("your invenotry is:" + s);
+        }
         return inventory;
     }
 
@@ -187,7 +230,15 @@ public class Player extends Observable {
         return false;
     }
 
-//saveing and loading stuff
+    public boolean isAttacking(){
+        return isAttacking;
+    }
+
+    public boolean isExamining() {
+        return isExamining;
+    }
+
+    //saveing and loading stuff
 
 
     /**Josh
@@ -216,18 +267,21 @@ public class Player extends Observable {
             String[] stuff=s.nextLine().split(",");
             //System.out.println(Arrays.toString(stuff));
             health=Integer.parseInt(stuff[0]);
-            if(stuff[1].equals(""))
+            if(stuff[1].equals("")||stuff[1].equals("0"))
                 weapon=new Weapon();
             else
                 weapon=(Weapon)items.get(Integer.parseInt(stuff[1]));
-            if(stuff[2].equals(""))
+            if(stuff[2].equals("")||stuff[2].equals("0"))
                 inventory=new ArrayList<>();
-            else
-                inventory=Item.getInventoryFromStringAndItemsList(stuff[2],items);
+            else {
+                inventory = Item.getInventoryFromStringAndItemsList(stuff[2], items);
+                System.out.println(stuff[2]);
+            }
             //currentRoom=Room.getFromId(Integer.parseInt(stuff[3]));
             currentRoom=rooms.get(Integer.parseInt(stuff[3]));
             isAttacking=Boolean.parseBoolean(stuff[4]);
             isExamining=Boolean.parseBoolean(stuff[5]);
+            baseAttack=Integer.parseInt(stuff[6]);
         }catch (FileNotFoundException e){
             System.out.println(e);
         }
@@ -236,7 +290,7 @@ public class Player extends Observable {
     }
 
     public String toString(){
-        return health+","+weapon.getSaveString()+","+Item.getInventoryString(inventory)+","+currentRoom.getId()+","+isAttacking+","+isExamining;
+        return health+","+weapon.getId()+","+Item.getInventoryString(inventory)+","+currentRoom.getId()+","+isAttacking+","+isExamining+","+baseAttack;
     }
 
     public static void main(String[] args) {
@@ -250,4 +304,11 @@ public class Player extends Observable {
     }
 
 
+    public void goToRoom(Room room,String doorName) {
+        currentRoom=room;
+        setChanged();
+        setChanged();
+        notifyObservers("Player goes through door "+doorName+".");
+        currentRoom.visit();
+    }
 }

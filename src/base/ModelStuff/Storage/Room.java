@@ -2,7 +2,7 @@
  *
  * saved as
  *
- * id,name,desc,Monster(id),puzzle(id),Connections(main redux ! second ; ... holds name of connection with the room it connects to),hasBeenVisited,inventory(saved same as in player)
+ * id,name,desc,Monster(id),puzzle(id),Connections(main redux ! second ; ... holds name of connection with the room it connects to),hasBeenVisited,inventory(saved same as in player),floorNumber
  *
  */
 package base.ModelStuff.Storage;
@@ -14,7 +14,7 @@ import java.util.*;
 
 public class Room extends Observable{
 
-    private int id;
+    private int id,floorNumber;
     private String name,description;
     private Monster monster;
     private Puzzle puzzle;
@@ -32,13 +32,14 @@ public class Room extends Observable{
         connections=new HashMap<>();
         hasBeenVisited=false;
         inventory=new ArrayList<>();
+        floorNumber=0;
     }
 
     public Room(int i){
         id=i;
     }
 
-    public Room(int id,String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Integer> connections,boolean hasBeenVisited, ArrayList<Item> inventory){
+    public Room(int id,String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Integer> connections,boolean hasBeenVisited, ArrayList<Item> inventory,int floorNumber){
         this.name=name;
         this.description=description;
         this.monster=monster;
@@ -47,6 +48,7 @@ public class Room extends Observable{
         this.hasBeenVisited=hasBeenVisited;
         this.id=id;
         this.inventory=inventory;
+        this.floorNumber=floorNumber;
     }
 
 
@@ -95,6 +97,10 @@ public class Room extends Observable{
         return monster;
     }
 
+    public void setMonster(Monster m){
+        monster=m;
+    }
+
     /**Josh
      *
      * returns hasBeenVisited
@@ -132,8 +138,9 @@ public class Room extends Observable{
      * @return
      */
     public boolean hasMonster(){
-        System.out.println("hasMonster()");
-        return false;
+        if(monster.getId()==0)
+            return false;
+        return true;
     }
 
     /**
@@ -153,7 +160,32 @@ public class Room extends Observable{
      *
      */
     public void visit(){
-        hasBeenVisited=true;
+        if(hasBeenVisited) {
+            setChanged();
+            notifyObservers("Player has entered room " + name + ". You recognize the room.");
+        }
+        else {
+            setChanged();
+            notifyObservers("Player has entered room " + name + ".");
+        }
+    }
+
+    public int getFloor(){
+        return floorNumber;
+    }
+
+    public Item dropItem(String itemName){
+        //System.out.println(inventory+"   :"+itemName);
+        for(int i=0;i<inventory.size();i++){
+           // System.out.println(inventory.get(i).getName()+"  "+);
+            if(inventory.get(i).getName().equals(itemName)){
+
+                Item rtn=inventory.get(i);
+                inventory.remove(i);
+                return rtn;
+            }
+        }
+        return null;
     }
 
 //save/load stuff
@@ -167,10 +199,7 @@ public class Room extends Observable{
      */
     public static Room createRoomFromString(String str,HashMap<Integer,Monster> monsters,HashMap<Integer,Item> items,HashMap<Integer,Puzzle> puzzles){
         String[] split=str.split(",");
-        if(split.length==7)
-            return new Room(Integer.parseInt(split[0]),split[1],split[2],monsters.get(Integer.parseInt(split[3])),puzzles.get(Integer.parseInt(split[4])),createConnectionsFromString(split[5]),Boolean.parseBoolean(split[6]),new ArrayList<>());
-
-       return new Room(Integer.parseInt(split[0]),split[1],split[2],monsters.get(Integer.parseInt(split[3])),puzzles.get(Integer.parseInt(split[4])),createConnectionsFromString(split[5]),Boolean.parseBoolean(split[6]),Item.getInventoryFromStringAndItemsList(split[7],items));
+       return new Room(Integer.parseInt(split[0]),split[1],split[2],monsters.get(Integer.parseInt(split[3])),puzzles.get(Integer.parseInt(split[4])),createConnectionsFromString(split[5]),Boolean.parseBoolean(split[6]),Item.getInventoryFromStringAndItemsList(split[7],items),Integer.parseInt(split[8]));
     }
 
     private static HashMap<String,Integer> createConnectionsFromString(String str){
@@ -198,7 +227,7 @@ public class Room extends Observable{
     }
 
     public String toString(){
-        return id+","+name+","+description+","+monster.getId()+","+puzzle.getId()+","+connectionsString()+","+hasBeenVisited+","+Item.getInventoryString(inventory);
+        return id+","+name+","+description+","+monster.getId()+","+puzzle.getId()+","+connectionsString()+","+hasBeenVisited+","+Item.getInventoryString(inventory)+","+floorNumber;
     }
 
     //makes the room string
@@ -213,7 +242,27 @@ public class Room extends Observable{
        // System.out.println(r);
     }
 
+    /**Josh
+     *
+     * handles the inspect room
+     *
+     */
+    public void inspect() {
+        String s=description;
+        if(inventory.size()>0) {
+            String ss="";
+            for (Item i : inventory) {
+                ss = ss + ", " + i.getName();
+            }
+            if (ss.length() > 0)
+                s =s+ "\nitems in room "  + ss.substring(1);
 
 
-
+        }
+        if(hasMonster()){
+            s=s+"\nMonster: "+monster.getName();
+        }
+        setChanged();
+        notifyObservers(s);
+    }
 }

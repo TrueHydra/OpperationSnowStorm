@@ -140,5 +140,31 @@ public class SaveUtility {
         return dir.delete();
     }
 
+//gets text
+    public String getSavedGameText(){
+        File f=new File("saves\\"+currentSaveName+"\\Text.txt");
+        String rtn="";
+        try{
+            Scanner s=new Scanner(f);
+            while(s.hasNextLine()){
+                rtn=rtn+"\n"+s.nextLine();
+            }
+        }catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+        return rtn.substring(1);
+    }
+
+    public void saveGameText(String saveString){
+        File f=new File("saves\\"+currentSaveName+"\\Text.txt");
+        try{
+            FileWriter fr=new FileWriter(f);
+            fr.write(saveString);
+            fr.close();
+        }catch (IOException e){
+            System.out.println(e);
+        }
+    }
+
 
 }

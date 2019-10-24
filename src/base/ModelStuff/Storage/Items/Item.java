@@ -23,7 +23,7 @@ public class Item extends Observable{
     public Item(){
         super();
         id=0;
-        name="test";
+        name="";
     }
 
     public Item(int id){
@@ -97,7 +97,6 @@ public class Item extends Observable{
     }
 
     public static String getInventoryString(ArrayList<Item> inventory){
-
         String rtn="";
         if(inventory.size()==0)
             return rtn;
@@ -117,7 +116,11 @@ public class Item extends Observable{
      * @return
      */
     public static ArrayList<Item> getInventoryFromStringAndItemsList(String savedListString,HashMap<Integer,Item> itemList){
+        //System.out.println("test");
         ArrayList<Item> items=new ArrayList<>();
+
+        if(savedListString.equals(""))
+            return items;
 
         String[] split=savedListString.split(";");
         for(String s:split){

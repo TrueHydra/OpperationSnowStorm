@@ -18,7 +18,7 @@ public class Map extends Observable {
     HashMap<Integer,Monster>  monsters;
     HashMap<Integer,Item> items;
     HashMap<Integer,Puzzle> puzzles;
-
+    int maxFloorNumber;
 
     //complete
     public void save(String saveName) {
@@ -41,6 +41,9 @@ public class Map extends Observable {
         items=loadItems(saveName);
         puzzles=loadPuzzle(saveName);
         rooms=loadRooms(saveName,monsters,items,puzzles);
+        for(int i:rooms.keySet()){
+            maxFloorNumber=Math.max(maxFloorNumber,rooms.get(i).getFloor());
+        }
     }
 
     /**Josh
@@ -61,6 +64,25 @@ public class Map extends Observable {
 
     public HashMap<Integer,Room> getRooms(){
         return rooms;
+    }
+
+    /**Josh
+     *
+     * goes throught the list of rooms and sees if any on the floor passed in have a living monster
+     *
+     * @param floorNumber
+     * @return
+     */
+    public boolean isMonsterOnFloor(int floorNumber){
+        if(floorNumber>maxFloorNumber){
+            return false;
+        }
+        for(int i:rooms.keySet()){
+            if(rooms.get(i).getFloor()==floorNumber&&rooms.get(i).hasMonster()){
+                return true;
+            }
+        }
+        return false;
     }
 
 

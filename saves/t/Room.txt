@@ -1,4 +1,0 @@
-0,name,description,0,0,,false,
-1,test 1,test room 1,0,0,door to 3;3!door to 2;2,false,
-2,test 2,test room 2:has inventory,0,0,door to 3;3!door to 1;1,false,1;2
-3,test 3,test room 3:has Monster,1,0,door to 2;2!door to 1;1,false,

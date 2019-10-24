@@ -1,9 +1,77 @@
 #overAllPane{
     -fx-pref-width: 1000;
     -fx-pref-height: 800;
+
+}
+
+#basePane{
 }
 
 #escButton{
     -fx-translate-x: 460;
     -fx-translate-y: -370;
+}
+
+#playerPane{
+    -fx-pref-width: 500;
+    -fx-pref-height: 500;
+    -fx-border-color: black;
+
+}
+
+#textScrollPane{
+    -fx-pref-width: 500;
+    -fx-pref-height: 500;
+    -fx-border-color: black;
+}
+
+#optionsScrollPane{
+    -fx-pref-width: 500;
+    -fx-pref-height: 500;
+}
+
+#optionsPane{
+    -fx-pref-width: 500;
+    -fx-pref-height: 500;
+}
+
+#itemHBOox{
+
+}
+
+#itemLabel{
+
+}
+
+#itemButton{
+
+}
+
+#textPane{
+
+}
+
+#optionsPane{
+    -fx-border-color: black;
+}
+
+#healthBar{
+    -fx-pref-height: 34;
+    -fx-background-color: Red;
+    -fx-translate-y: 1;
+    -fx-translate-x: 1;
+}
+
+#healthBarOutline{
+    -fx-pref-height: 22;
+    -fx-pref-width: 202;
+    -fx-border-color: Blue;
+}
+
+#title{
+    -fx-font-size: 40;
+}
+
+#label{
+    -fx-font-size: 25;
 }
