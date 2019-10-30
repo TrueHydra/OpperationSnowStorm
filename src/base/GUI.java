@@ -1,7 +1,9 @@
 package base;
 
+import base.ModelStuff.Storage.Items.Item;
 import base.ModelStuff.Storage.Monster;
 import base.ModelStuff.Storage.Player;
+import base.ModelStuff.Storage.Puzzle;
 import base.ModelStuff.Storage.Room;
 import com.sun.prism.GraphicsPipeline;
 import javafx.application.Platform;
@@ -54,9 +56,6 @@ public class GUI implements Observer {
     public Stage getPrimaryStage(){
         return primaryStage;
     }
-
-
-
 
 
 //startMenu stuff
@@ -350,12 +349,20 @@ public class GUI implements Observer {
         if(o instanceof Player){
             addTextToTextPane((String)arg);
             setUpPlayPane();
+            controller.ready();
         }else if(o instanceof Room){
             addTextToTextPane((String) arg);
+            controller.ready();
         }else if(o instanceof Monster){
             addTextToTextPane((String)arg);
+            controller.ready();
+        }else if(o instanceof Puzzle){
+            addTextToTextPane((String)arg);
+            controller.ready();
+        }else if(o instanceof Item){
+            addTextToTextPane((String)arg);
+            setUpPlayPane();
         }
-        controller.ready();
     }
 
     /**Josh

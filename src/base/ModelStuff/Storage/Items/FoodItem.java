@@ -33,6 +33,13 @@ FoodItem extends Item{
         return "f,"+getId()+","+getName()+","+saturation;
     }
 
+    @Override
+    public String inspect(){
+        setChanged();
+        notifyObservers(getName()+" heals for "+saturation+".");
+        return "";
+    }
+
 
     /**Josh
      *

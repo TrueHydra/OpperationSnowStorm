@@ -28,7 +28,6 @@ public class Map extends Observable {
         saveRooms(saveName,rooms);
     }
 
-
     //complete
     /**Josh
      *

@@ -150,8 +150,9 @@ public class Room extends Observable{
      * @return
      */
     public boolean hasPuzzle(){
-        System.out.println("hasPuzzle()");
-        return false;
+        if(puzzle.getId()==0)
+            return false;
+        return true;
     }
 
     /**Josh

@@ -15,9 +15,7 @@ public class Runner extends Application {
 
         controller=new Controller(primaryStage);
         controller.start();
-
-        //controller.loadGameEnter("test");
-        //controller.loadGameEnter("test");
+        
     }
 
 
