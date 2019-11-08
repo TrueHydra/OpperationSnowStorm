@@ -21,6 +21,7 @@ public class Room extends Observable{
     private HashMap<String,Integer> connections;
     private boolean hasBeenVisited;
     private ArrayList<Item> inventory;
+    private boolean hasDeadMonster;
 
     public Room(){
         super();
@@ -39,7 +40,7 @@ public class Room extends Observable{
         id=i;
     }
 
-    public Room(int id,String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Integer> connections,boolean hasBeenVisited, ArrayList<Item> inventory,int floorNumber){
+    public Room(int id,String name,String description,Monster monster,Puzzle puzzle,HashMap<String,Integer> connections,boolean hasBeenVisited, ArrayList<Item> inventory,int floorNumber,boolean hDM){
         this.name=name;
         this.description=description;
         this.monster=monster;
@@ -49,6 +50,7 @@ public class Room extends Observable{
         this.id=id;
         this.inventory=inventory;
         this.floorNumber=floorNumber;
+        hasDeadMonster=hDM;
     }
 
 
@@ -200,7 +202,7 @@ public class Room extends Observable{
      */
     public static Room createRoomFromString(String str,HashMap<Integer,Monster> monsters,HashMap<Integer,Item> items,HashMap<Integer,Puzzle> puzzles){
         String[] split=str.split(",");
-       return new Room(Integer.parseInt(split[0]),split[1],split[2],monsters.get(Integer.parseInt(split[3])),puzzles.get(Integer.parseInt(split[4])),createConnectionsFromString(split[5]),Boolean.parseBoolean(split[6]),Item.getInventoryFromStringAndItemsList(split[7],items),Integer.parseInt(split[8]));
+       return new Room(Integer.parseInt(split[0]),split[1],split[2],monsters.get(Integer.parseInt(split[3])),puzzles.get(Integer.parseInt(split[4])),createConnectionsFromString(split[5]),Boolean.parseBoolean(split[6]),Item.getInventoryFromStringAndItemsList(split[7],items),Integer.parseInt(split[8]),Boolean.parseBoolean(split[9]));
     }
 
     private static HashMap<String,Integer> createConnectionsFromString(String str){
@@ -228,7 +230,7 @@ public class Room extends Observable{
     }
 
     public String toString(){
-        return id+","+name+","+description+","+monster.getId()+","+puzzle.getId()+","+connectionsString()+","+hasBeenVisited+","+Item.getInventoryString(inventory)+","+floorNumber;
+        return id+","+name+","+description+","+monster.getId()+","+puzzle.getId()+","+connectionsString()+","+hasBeenVisited+","+Item.getInventoryString(inventory)+","+floorNumber+","+hasDeadMonster;
     }
 
     //makes the room string
@@ -265,5 +267,13 @@ public class Room extends Observable{
         }
         setChanged();
         notifyObservers(s);
+    }
+
+    public void setDeadMonster(boolean b) {
+        hasDeadMonster=b;
+    }
+
+    public boolean isHasDeadMonster(){
+        return hasDeadMonster;
     }
 }

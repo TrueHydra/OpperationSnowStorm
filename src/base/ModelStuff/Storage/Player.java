@@ -81,6 +81,7 @@ public class Player extends Observable {
         monster.takeDamage(baseAttack+weapon.getDamage());
         if(monster.getHealth()<=0){
             currentRoom.setMonster(new Monster());
+            currentRoom.setDeadMonster(true);
             isAttacking=false;
             setChanged();
             notifyObservers();
