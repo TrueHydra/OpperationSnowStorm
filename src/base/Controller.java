@@ -7,34 +7,23 @@ import base.ModelStuff.Storage.Items.Weapon;
 import base.ModelStuff.Storage.Map;
 import base.ModelStuff.Storage.Player;
 import base.ModelStuff.Storage.Room;
-import com.sun.xml.internal.ws.api.server.EndpointReferenceExtensionContributor;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
-import java.lang.reflect.Array;
-import java.nio.file.Path;
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class Controller {
 
     private Player player;
     private Map map;
 
-
     private boolean keepGoing=false;
     private GUI gui;
     private SaveUtility saveUtility;
-
-
 
     public Controller(Stage primaryStage){
        this.gui=new GUI(primaryStage,this);
@@ -167,7 +156,31 @@ public class Controller {
             escape.setId("option");
             escape.setOnAction(e->escape());
             optionsPane.getChildren().add(escape);
-        }else if(player.isExamining()){
+        }
+        else if(player.isExamining()){
+            System.out.println("test");
+            HBox temp=new HBox();
+            temp.setId("puzzleHBox");
+            optionsPane.getChildren().add(temp);
+
+            TextField puzzleSolution=new TextField();
+            puzzleSolution.setId("puzzleSolution");
+            temp.getChildren().add(puzzleSolution);
+
+            Button enter=new Button("enter");
+            enter.setId("option");
+            enter.setOnAction(e->solvePuzzle(puzzleSolution.getText()));
+            temp.getChildren().add(enter);
+
+            Button examine=new Button("Examine");
+            examine.setId("option");
+            examine.setOnAction(e->examinePuzzle());
+            optionsPane.getChildren().add(examine);
+
+            Button close=new Button("close");
+            close.setId("option");
+            close.setOnAction(e->puzzleClose());
+            optionsPane.getChildren().add(close);
 
         }else {
             //creates momement buttons
@@ -200,12 +213,17 @@ public class Controller {
 
     }
 
+    private void puzzleClose() {
+        player.stopExamining();
+        ready();
+    }
+
     private void clearOptions(){
         gui.getOptionsPane().getChildren().clear();
     }
 
     private void inspectMonster(){
-        System.out.println("inspect monster");
+        player.getCurrentRoom().getMonster().inspect();
     }
 
     private void accessInventory(){
@@ -263,11 +281,8 @@ public class Controller {
             close.setOnAction(e->ready());
             optionsPane.getChildren().add(close);
         }
-
-
-
-
     }
+
 
     private void closeMenu(){
 
@@ -285,9 +300,17 @@ public class Controller {
         clearOptions();
         Room room=map.getRoomById(player.getCurrentRoom().getConnections().get(connectionName));
         //makes sure there is not a monster on the floor that needs to be killed
-        if(room.getFloor()>player.getCurrentRoom().getFloor()&&map.isMonsterOnFloor(player.getCurrentRoom().getFloor()))
+        if(room.getFloor()>player.getCurrentRoom().getFloor()&&map.isMonsterOnFloor(player.getCurrentRoom().getFloor())) {
             gui.addTextToTextPane("There is still a monster left on the floor to kill");
-        else if(room.hasPuzzle()){}
+            ready();
+        }
+        else if(room.hasPuzzle()&&!room.getPuzzle().hasBeenSolved()){
+            player.encounterPuzzle();
+            gui.addTextToTextPane("The player must solve the puzzle to enter the room.");
+
+            room.getPuzzle().examine();
+            doorNameForPuzzleRoom =connectionName;
+        }
         else
             player.goToRoom(room,connectionName);
     }
@@ -305,6 +328,7 @@ public class Controller {
      *
      */
     private void loadRoomInventory(){
+        System.out.println("test");
         Pane optionsPane=gui.getOptionsPane();
         optionsPane.getChildren().clear();
         ArrayList<Item> inv=player.getCurrentRoom().getInventory();
@@ -335,7 +359,7 @@ public class Controller {
     }
 
     private void insectItem(Item i){
-        System.out.println("insepce item");
+        i.inspect();
     }
 
     /**Josh
@@ -351,11 +375,13 @@ public class Controller {
     }
 
     private void consume(String itemName){
-
+        player.consume(itemName);
+        accessInventory();
     }
 
     private void equipWeapon(String weaponName){
         player.equipWeapon((Weapon)player.getItemFromInventory(weaponName));
+        accessInventory();
     }
 
     private void usePuzzleItem(String itemName){
@@ -366,8 +392,6 @@ public class Controller {
         player.getCurrentRoom().getInventory().add(player.getItemFromInventory(itemName));
         accessInventory();
     }
-
-
 
     private void observeMonster(){
 
@@ -380,16 +404,33 @@ public class Controller {
         }
     }
 
+    /**Josh
+     *
+     * when the player wants to escape from the monster
+     *
+     */
     private void escape(){
-
+        player.escapeFromAttacking();
+        player.getCurrentRoom().getMonster().attackPlayer(player);
     }
 
+    String doorNameForPuzzleRoom ="";
     private void examinePuzzle(){
-
+        map.getRooms().get(player.getCurrentRoom().getConnections().get(doorNameForPuzzleRoom)).getPuzzle().examine();
     }
 
-    private void solvePuzzle(){
-
+    /**Josh
+     *
+     * is used when the enter button in the puzzle
+     *
+     * @param solution
+     */
+    private void solvePuzzle(String solution){
+        if(map.getRooms().get(player.getCurrentRoom().getConnections().get(doorNameForPuzzleRoom)).getPuzzle().solve(solution)){
+         goToRoom(doorNameForPuzzleRoom);
+         player.stopExamining();
+        }
+        ready();
     }
 
 

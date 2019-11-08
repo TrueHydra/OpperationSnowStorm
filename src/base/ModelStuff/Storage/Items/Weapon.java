@@ -55,6 +55,15 @@ public class Weapon extends Item {
         return "w,"+getId()+","+getName()+","+damage+","+usesRemaining;
     }
 
+    @Override
+    public String inspect(){
+        String s=getName()+" has "+usesRemaining+" uses remaining and does "+damage+" damage.";
+
+        setChanged();
+        notifyObservers(s);
+
+        return s;
+    }
 
     /**Josh
      *

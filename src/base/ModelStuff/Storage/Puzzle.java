@@ -69,8 +69,16 @@ public class Puzzle extends Observable{
      * @return
      */
     public boolean solve(String solution){
-        System.out.println("solve puzzle");
-        return false;
+        if(solution.equals(this.solution)){
+            beenSolved=true;
+            setChanged();
+            notifyObservers(puzzleResponse);
+            return true;
+        }else{
+            setChanged();
+            notifyObservers("That was wrong.");
+            return false;
+        }
     }
 
     /**Josh
@@ -87,6 +95,12 @@ public class Puzzle extends Observable{
         return id;
     }
 
+    public void examine(){
+        System.out.println(countObservers());
+        setChanged();
+        notifyObservers(puzzleText);
+    }
+
     /**Josh
      *
      * is used to create a puzzle from the string in which the puzzle is saved
@@ -100,7 +114,7 @@ public class Puzzle extends Observable{
         return new Puzzle(split[1],split[2],split[3],Integer.parseInt(split[0]),Boolean.parseBoolean(split[4]));
     }
 
-    public String getPuzzleSaveString(){
+    public String a(){
         return toString();
     }
 

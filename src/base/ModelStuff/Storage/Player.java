@@ -67,8 +67,8 @@ public class Player extends Observable {
      * @param item
      */
     public void addItemToInventory(Item item){
-        System.out.println("needs done add To Inventory");
         inventory.add(item);
+        item.pickup();
     }
 
 
@@ -151,8 +151,7 @@ public class Player extends Observable {
             inventory.add(this.weapon);
         this.weapon=weapon;
 
-        setChanged();
-        notifyObservers("Player has equipped "+weapon.getName());
+        weapon.equip();
 
     }
 
@@ -258,7 +257,6 @@ public class Player extends Observable {
         }
     }
 
-
     public void load(String saveName,HashMap<Integer,Item> items,HashMap<Integer,Room> rooms) {
 
         File f=new File("saves\\"+saveName+"\\Player.txt");
@@ -303,7 +301,6 @@ public class Player extends Observable {
         System.out.println(p);
     }
 
-
     public void goToRoom(Room room,String doorName) {
         currentRoom=room;
         setChanged();
@@ -311,4 +308,32 @@ public class Player extends Observable {
         notifyObservers("Player goes through door "+doorName+".");
         currentRoom.visit();
     }
+
+    public void encounterPuzzle() {
+        isExamining=true;
+    }
+
+    public void stopExamining() {
+        isExamining=false;
+    }
+
+    public String consume(String itemName){
+        String rtn="Player consumers "+itemName;
+        FoodItem i=(FoodItem)getItemFromInventory(itemName);
+        int amountHealed=0;
+        if(health+i.use()>100){
+            amountHealed=100-health;
+            health+=amountHealed;
+        }else{
+            amountHealed=i.use();
+            health+=amountHealed;
+        }
+
+
+        rtn=rtn+" and has healed for "+amountHealed;
+        setChanged();
+        notifyObservers(rtn);
+        return rtn;
+    }
+
 }

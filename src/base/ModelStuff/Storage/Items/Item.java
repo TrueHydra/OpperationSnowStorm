@@ -35,7 +35,6 @@ public class Item extends Observable{
         this.name=name;
     }
 
-
     public int getId() {
         return id;
     }
@@ -135,5 +134,21 @@ public class Item extends Observable{
             return ""+id;
         }
         return id+","+name;
+    }
+
+    public String inspect() {
+        setChanged();
+        notifyObservers(name);
+        return name;
+    }
+
+    public void pickup() {
+        setChanged();
+        notifyObservers("Player has picked up "+name+".");
+    }
+
+    public void equip(){
+        setChanged();
+        notifyObservers("Player has equipped "+name+".");
     }
 }

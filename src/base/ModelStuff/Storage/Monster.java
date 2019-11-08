@@ -93,9 +93,15 @@ public class Monster extends Observable{
     public void attackPlayer(Player player){
         System.out.println("attack player");
         player.takeDamage(damage);
+    }
 
+    public String inspect(){
+        String s=name+" has "+health;
 
+        setChanged();
+        notifyObservers(s);
 
+        return s;
     }
 
 
