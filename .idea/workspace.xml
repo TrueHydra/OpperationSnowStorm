@@ -3,35 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c399d8b-8ab7-4959-b4d9-49f01196477d" name="Default Changelist" comment="saving and loading&#10;began working on the movement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/CSS/mainGame.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/CSS/mainGame.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/Runner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Items/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Items/Weapon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Puzzle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/test/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/test/Items.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/test/Monsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/test/Monsters.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/test/Player.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/test/Player.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/test/Puzzle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/test/Puzzle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/test/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/test/Room.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/test/Text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/test/Text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/mainGame.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS/mainGame.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/FoodItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/FoodItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Items/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Puzzle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starting point/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/starting point/Room.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,11 +33,11 @@
     <property name="settings.editor.selected.configurable" value="settings.css.dialects" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joshb\Documents\OpperationSnowStorm\OpperationSnowStorm\starting point" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joshb\Documents\OpperationSnowStorm\OpperationSnowStorm" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\joshb\Documents\OpperationSnowStorm\OpperationSnowStorm\starting point" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -194,6 +165,8 @@
       <workItem from="1572291366167" duration="2942000" />
       <workItem from="1572448836070" duration="14000" />
       <workItem from="1572450919987" duration="1528000" />
+      <workItem from="1572488189636" duration="63000" />
+      <workItem from="1573227458109" duration="357000" />
     </task>
     <servers />
   </component>
