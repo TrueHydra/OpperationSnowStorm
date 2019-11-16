@@ -6,25 +6,36 @@ import base.ModelStuff.Storage.Player;
 import base.ModelStuff.Storage.Puzzle;
 import base.ModelStuff.Storage.Room;
 import com.sun.prism.GraphicsPipeline;
+import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-import java.util.Arrays;
+import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.*;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.zip.GZIPOutputStream;
 
 public class GUI implements Observer {
@@ -187,6 +198,7 @@ public class GUI implements Observer {
             TextField newGameInput=new TextField();
             newGameInput.setId("textField");
             textLineHolder.getChildren().add(newGameInput);
+            
 
             Button enterButton=new Button("Enter");
             enterButton.setId("enterButton");
@@ -618,6 +630,61 @@ public class GUI implements Observer {
 
     public void showEscMenu(){
         primaryStage.setScene(escMenu);
+    }
+
+
+//on start up
+
+    public void startUpAnimation(){
+
+        Pane p=new Pane();
+        p.setId("startAnimationPane");
+
+        //background
+        Rectangle rect=new Rectangle(1000,800,Color.BLACK);
+        rect.setFill(Color.BLACK);
+       p.getChildren().add(rect);
+
+
+       // File f=new File("images/test");
+        try{
+            Image img=new Image(new FileInputStream("images/hydraLogo.png"));
+
+            ImageView imgViewer=new ImageView(img);
+            imgViewer.setFitHeight(600.0);
+            imgViewer.setFitWidth(600.0);
+            imgViewer.setX(200.0);
+            imgViewer.setY(70.0);
+
+            Text topText=new Text("Hydra Productions");
+            topText.setFill(Color.WHITE);
+            topText.setFont(Font.font("Georgia",50));
+            topText.prefHeight(100);
+            topText.setX(290);
+            topText.setY(50);
+
+            FadeTransition timer=new FadeTransition(Duration.seconds(100));
+            timer.setOnFinished(e->showStartMenu());
+
+            FadeTransition imageFadeIn=new FadeTransition(Duration.seconds(10),imgViewer);
+            imageFadeIn.setNode(imgViewer);
+            imageFadeIn.setFromValue(0.0);
+            imageFadeIn.setToValue(1.0);
+            imageFadeIn.play();
+            imageFadeIn.setOnFinished(e->timer.play());
+
+
+
+
+            p.getChildren().addAll(topText);
+            p.getChildren().add(imgViewer);
+     //       Scanner s=new Scanner(f);
+        }catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+
+        Scene s=new Scene(p);
+        primaryStage.setScene(s);
     }
 
 

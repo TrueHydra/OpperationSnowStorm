@@ -15,6 +15,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller {
 
@@ -32,7 +34,8 @@ public class Controller {
 
     public void start(){
         gui.show();
-        gui.showStartMenu();
+        gui.startUpAnimation();
+
     }
 
     public Player getPlayer(){
@@ -58,17 +61,26 @@ public class Controller {
      */
     public void startNewGame(String s){
         if(Arrays.asList(saveUtility.getSaves()).contains(s)){
-            System.out.println("stuff");
+            //System.out.println("stuff");
             gui.addNewGameError("That name is already taken");
         }else if(s==null){
             gui.addNewGameError("Please enter name");
         }else if(!(s.length()>0 &&s.length()<10)){
             gui.addNewGameError("The name must be between 1 and 9 characters long");
+        }else if(checkName(s)){
+            gui.addNewGameError("The name must only contain characters");
+
         }
         else {
             saveUtility.createNewSave(s);
             loadGameEnter(s);
         }
+    }
+
+    private boolean checkName(String s){
+        Pattern p= Pattern.compile("[^a-zA-Z]");
+        Matcher m=p.matcher(s);
+        return m.find();
     }
 
     /**Josh
@@ -432,19 +444,5 @@ public class Controller {
         }
         ready();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 }

@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c399d8b-8ab7-4959-b4d9-49f01196477d" name="Default Changelist" comment="saving and loading&#10;began working on the movement">
+      <change afterPath="$PROJECT_DIR$/images/test" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/test/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/test/Room.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starting point/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/starting point/Room.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/test/Items.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/test/Monsters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/test/Player.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/test/Puzzle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/test/Room.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/test/Text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/test/helpText.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/GUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +180,10 @@
       <workItem from="1572448836070" duration="14000" />
       <workItem from="1572450919987" duration="1528000" />
       <workItem from="1572488189636" duration="63000" />
-      <workItem from="1573227458109" duration="2166000" />
+      <workItem from="1573227458109" duration="4113000" />
+      <workItem from="1573349232858" duration="630000" />
+      <workItem from="1573660588343" duration="27000" />
+      <workItem from="1573883079756" duration="4563000" />
     </task>
     <servers />
   </component>

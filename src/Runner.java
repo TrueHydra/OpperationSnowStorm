@@ -10,12 +10,10 @@ public class Runner extends Application {
     }
 
     public void start(Stage primaryStage){
-
         Controller controller;
 
         controller=new Controller(primaryStage);
         controller.start();
-        
     }
 
 
