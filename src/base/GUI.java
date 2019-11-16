@@ -30,6 +30,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -645,6 +646,8 @@ public class GUI implements Observer {
         rect.setFill(Color.BLACK);
        p.getChildren().add(rect);
 
+       p.setOnMouseClicked(e->showStartMenu());
+
 
        // File f=new File("images/test");
         try{
@@ -663,6 +666,16 @@ public class GUI implements Observer {
             topText.setX(290);
             topText.setY(50);
 
+
+            Text bottomText=new Text("Click to Anywhere to Skip");
+            bottomText.setFill(Color.WHITE);
+            bottomText.setFont(Font.font("Georgia",50));
+            bottomText.prefHeight(100);
+            bottomText.setX(200);
+            bottomText.setY(750);
+
+
+
             FadeTransition timer=new FadeTransition(Duration.seconds(100));
             timer.setOnFinished(e->showStartMenu());
 
@@ -676,7 +689,7 @@ public class GUI implements Observer {
 
 
 
-            p.getChildren().addAll(topText);
+            p.getChildren().addAll(topText,bottomText);
             p.getChildren().add(imgViewer);
      //       Scanner s=new Scanner(f);
         }catch (FileNotFoundException e){

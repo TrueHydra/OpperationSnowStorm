@@ -47,7 +47,7 @@
 
 #savesHBox{
 -fx-alignment: center;
-    -fx-spacing: 10;
+    -fx-spacing: 1;
     -fx-pref-height: 100;
 }
 
