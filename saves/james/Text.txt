@@ -1,7 +1,0 @@
-welcome to opperation snow storm
-Player goes through door door to 3.
-Player has entered room test 3.
-Player goes through door door to 2.
-Player has entered room test 2.
-test room 2:has inventory
-items in room  test weapon, test food
