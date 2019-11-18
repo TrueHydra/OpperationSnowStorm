@@ -123,7 +123,8 @@ public class Item extends Observable{
 
         String[] split=savedListString.split(";");
         for(String s:split){
-            items.add(itemList.get(Integer.parseInt(s)));
+            if(itemList.get(Integer.parseInt(s))!=null)
+                items.add(itemList.get(Integer.parseInt(s)));
         }
         return items;
     }

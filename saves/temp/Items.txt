@@ -1,0 +1,10 @@
+w,32,Pepper-grinder,30,20
+w,33,fork,10,10
+f,51,big-mac,50
+f,52,cold-boot,30
+w,53,brute-force,70,10
+w,71,onetime-pistol,400,1
+w,41,tunny,50,10
+f,12,apple,10
+w,61,blowfish,100,10
+f,31,caesar-salad,30

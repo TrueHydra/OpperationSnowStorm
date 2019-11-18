@@ -1,0 +1,14 @@
+welcome to opperation snow storm
+your invenotry is empty
+Player goes through door door to 2.
+test 2
+test room 2:has inventory
+test 2
+test 2
+test 2
+test 2
+test 2
+Player goes through door door to 1.
+test 1
+test room 1
+Player has picked up apple.
