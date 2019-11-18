@@ -3,13 +3,53 @@
   <component name="ChangeListManager">
     <list default="true" id="3c399d8b-8ab7-4959-b4d9-49f01196477d" name="Default Changelist" comment="saving and loading&#10;began working on the movement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/t/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Items.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/t/Monsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Monsters.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/t/Player.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Player.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/t/Puzzle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Puzzle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/t/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Room.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/t/Text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/fjn/Items.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/fjn/Monsters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/fjn/Player.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/fjn/Puzzle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/fjn/Room.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/fjn/Text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/fjn/helpText.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/ok/Items.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/ok/Monsters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/ok/Player.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/ok/Puzzle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/ok/Room.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/ok/Text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/ok/helpText.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Items.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Monsters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Player.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Puzzle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Room.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/helpText.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tk/Items.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tk/Monsters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tk/Player.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tk/Puzzle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tk/Room.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tk/Text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tk/helpText.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/to/Items.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/to/Monsters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/to/Player.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/to/Puzzle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/to/Room.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/to/Text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/to/helpText.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tt/Items.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tt/Monsters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tt/Player.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tt/Puzzle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tt/Room.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tt/Text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/tt/helpText.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starting point/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/starting point/Room.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,11 +80,11 @@
     <property name="settings.editor.selected.configurable" value="settings.css.dialects" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\joshb\Documents\OpperationSnowStorm\OpperationSnowStorm" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\joshb\Documents\OpperationSnowStorm\OpperationSnowStorm\starting point" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joshb\Documents\OpperationSnowStorm\OpperationSnowStorm" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -180,7 +220,7 @@
       <workItem from="1573954332031" duration="2053000" />
       <workItem from="1573958021729" duration="378000" />
       <workItem from="1573958583578" duration="120000" />
-      <workItem from="1574035853747" duration="81000" />
+      <workItem from="1574035853747" duration="3091000" />
     </task>
     <servers />
   </component>

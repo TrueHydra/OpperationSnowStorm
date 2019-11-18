@@ -345,6 +345,7 @@ public class Controller {
         optionsPane.getChildren().clear();
         ArrayList<Item> inv=player.getCurrentRoom().getInventory();
         for(Item i:inv){
+           // System.out.println(i);
             HBox temp = new HBox();
             temp.setId("itemHBox");
 

@@ -130,14 +130,13 @@ public class Map extends Observable {
                 String[] split=str.split(",");
 
                 items.put(Integer.parseInt(split[1]),Item.getFromString(str));
-
             }
 
 
         }catch (FileNotFoundException e){
             System.out.println(e);
         }
-
+        System.out.println(items.keySet());
         return items;
     }
 
