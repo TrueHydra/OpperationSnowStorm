@@ -1,0 +1,8 @@
+0/not a puzzle/null/null/false
+1/After rotating 13 degrees to your left, you see the elevator’s keypad. Password:/venona/Ahh, I read about that project./false
+2/Ahh, the smell of bacon. Now I just need to get past this elevator lock so I can get to the cafeteria. Password:/xor/Ahh, my favorite logical operation./false
+3/Another puzzle? Good thing I ate the caesar salad instead of the 3 pieces of cake. Password: /adfgvx/Damn Germans./false
+4/After glancing that the portrait of Greek historian Polybius, you see the elevator’s keypad. Password: /lfsr/That’s how I generate my pseudo-random numbers./false
+5/After zigzagging across the room, you reach the elevator’s keypad. Password: /confusion-and-diffusion/I love Claude Shannon’s work. /false
+6/After glancing at the painting of French cryptographer Vigenère, you see your friend “mat” walking by. Anyway, to the elevator. Password:/hollownickel/Nowadays we have hollow quarters due to inflation. /false
+7/The calendar reads December 29th. Finally, the climb up this hill is almost over. Password: /iwin/Yes, it does look like I’ve won. To the press!/false

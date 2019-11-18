@@ -7,4 +7,5 @@ w,33,fork,10,10
 w,41,tunny,50,10
 w,53,brute-force,70,10
 w,61,blowfish,100,10
-w,71,onetime-pistol,400,1
+w,onetime-pistol,400,1
+
