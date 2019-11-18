@@ -184,7 +184,7 @@ public class Map extends Observable {
 
             while (s.hasNextLine()){
                 String str=s.nextLine();
-                String[] split=str.split(",");
+                String[] split=str.split("@");
 
                 rooms.put(Integer.parseInt(split[0]),Room.createRoomFromString(str,monstersm,items,puzzles));
             }

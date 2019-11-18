@@ -701,9 +701,6 @@ public class GUI implements Observer {
         Scene s=new Scene(p);
         primaryStage.setScene(s);
     }
-
-
-
 }
 
 
