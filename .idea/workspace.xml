@@ -3,23 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3c399d8b-8ab7-4959-b4d9-49f01196477d" name="Default Changelist" comment="saving and loading&#10;began working on the movement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpperationSnowStorm/base/ModelStuff/Storage/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/james/Items.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/james/Monsters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/james/Player.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/james/Puzzle.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/james/Room.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/james/Text.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/ttt/Items.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/ttt/Monsters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/ttt/Player.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/ttt/Puzzle.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/ttt/Room.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/ttt/Text.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/ttt/helpText.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/ModelStuff/Storage/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starting point/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/starting point/Room.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Items.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Monsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Monsters.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Player.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Player.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Puzzle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Puzzle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Room.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Room.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/t/Text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/t/Text.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/GUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../adv prging/roomFileMaker" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="settings.css.dialects" />
   </component>
@@ -189,6 +179,8 @@
       <workItem from="1573883079756" duration="5093000" />
       <workItem from="1573954332031" duration="2053000" />
       <workItem from="1573958021729" duration="378000" />
+      <workItem from="1573958583578" duration="120000" />
+      <workItem from="1574035853747" duration="81000" />
     </task>
     <servers />
   </component>

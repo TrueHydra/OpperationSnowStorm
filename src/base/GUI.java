@@ -646,7 +646,6 @@ public class GUI implements Observer {
         rect.setFill(Color.BLACK);
        p.getChildren().add(rect);
 
-       p.setOnMouseClicked(e->showStartMenu());
 
 
        // File f=new File("images/test");
@@ -686,7 +685,10 @@ public class GUI implements Observer {
             imageFadeIn.play();
             imageFadeIn.setOnFinished(e->timer.play());
 
-
+            p.setOnMouseClicked(e->{showStartMenu();
+                timer.stop();
+                imageFadeIn.stop();
+            });
 
 
             p.getChildren().addAll(topText,bottomText);
