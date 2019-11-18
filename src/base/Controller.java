@@ -3,15 +3,19 @@ package base;
 import base.ModelStuff.Storage.Items.FoodItem;
 import base.ModelStuff.Storage.Items.Item;
 import base.ModelStuff.Storage.Items.PuzzleItem;
+import base.ModelStuff.Storage.Items.PuzzleItems.BianaryTranslator;
+import base.ModelStuff.Storage.Items.PuzzleItems.PuzzleBook;
 import base.ModelStuff.Storage.Items.Weapon;
 import base.ModelStuff.Storage.Map;
 import base.ModelStuff.Storage.Player;
+import base.ModelStuff.Storage.Puzzle;
 import base.ModelStuff.Storage.Room;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.*;
@@ -267,7 +271,7 @@ public class Controller {
                     temp.getChildren().add(equip);
 
                 }
-                if (i instanceof PuzzleItem) {
+                if (i instanceof PuzzleBook) {
                     Button use = new Button("use");
                     use.setId("itemButton");
                     use.setOnAction(e -> usePuzzleItem(i.getName()));
@@ -278,6 +282,13 @@ public class Controller {
                     consume.setId("itemButton");
                     consume.setOnAction(e -> consume(i.getName()));
                     temp.getChildren().add(consume);
+                }
+                if(i instanceof BianaryTranslator){
+                    Button use = new Button("use");
+                    use.setId("itemButton");
+                    use.setOnAction(e -> useBinaryTrans((BianaryTranslator)i));
+                    temp.getChildren().add(use);
+
                 }
 
                 Button drop=new Button("drop");
@@ -398,7 +409,9 @@ public class Controller {
     }
 
     private void usePuzzleItem(String itemName){
-
+        PuzzleItem p=(PuzzleItem)player.getItemFromInventory(itemName);
+        player.addItemToInventoryQuiet(p);
+        p.use(new String[]{});
     }
 
     private void dropItem(String itemName){
@@ -444,6 +457,55 @@ public class Controller {
          player.stopExamining();
         }
         ready();
+    }
+
+    private void useBinaryTrans(BianaryTranslator bt){
+        Pane optionsPane=gui.getOptionsPane();
+        optionsPane.getChildren().clear();
+
+        Text t=new Text("Please enter 5 digit binary string to be translated");
+        t.setId("optionText");
+        optionsPane.getChildren().add(t);
+
+        TextField tf=new TextField();
+        tf.setId("optionsTextField");
+        optionsPane.getChildren().add(tf);
+
+        Text res=new Text();
+        res.setId("optionsText");
+        optionsPane.getChildren().add(res);
+
+        Button enter=new Button("enter");
+        enter.setId("option");
+        enter.setOnAction(e->{
+            String temp=tf.getText();
+            if(checkEnsert(temp)){
+                res.setText(bt.use(new String[]{temp}));
+            }else
+                res.setText("not valid");
+        });
+        optionsPane.getChildren().add(enter);
+
+        Button back=new Button("back");
+        back.setId("option");
+        back.setOnAction(e->accessInventory());
+        optionsPane.getChildren().add(back);
+    }
+
+    private boolean checkEnsert(String temp){
+       // System.out.println(temp+"  "+temp.length());
+        if (temp.length()!=5)
+            return false;
+        for(int i=0;i<temp.length();i++){
+            //System.out.println(temp.charAt(i));
+            if(temp.charAt(i)=='0'||temp.charAt(i)=='1'){}
+            else {
+            //    System.out.println("test");
+                return false;
+            }
+
+        }
+        return true;
     }
     
 }

@@ -5,27 +5,15 @@ import java.util.HashMap;
 
 public class PuzzleItem extends Item{
 
-    HashMap<String[],String> results;
+  //  HashMap<String[],String> results;
 
     public PuzzleItem(){}
 
 
 
-    public PuzzleItem(int id,String name,HashMap<String[],String> results){
+    public PuzzleItem(int id,String name){
         super(id,name);
-        this.results=results;
-    }
-
-    /**
-     *
-     * handles the use of the puzzle item
-     *
-     * @param input
-     * @return
-     */
-    public String getResultFromStrings(String[] input){
-        System.out.println("getResultFromString");
-        return "";
+     //   this.results=results;
     }
 
     /**

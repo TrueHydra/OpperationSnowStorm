@@ -1,0 +1,13 @@
+welcome to opperation snow storm
+test room 1
+Player has picked up password-book.
+Player has picked up binary-translator.
+Player has picked up polybius-square.
+Player has picked up tabula-recta.
+Player has picked up matrix-calculator.
+your invenotry is:
+password-book
+binary-translator
+polybius-square
+tabula-recta
+matrix-calculator

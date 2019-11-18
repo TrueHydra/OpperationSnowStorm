@@ -11,6 +11,9 @@ package base.ModelStuff.Storage.Items;
 
 
 
+import base.ModelStuff.Storage.Items.PuzzleItems.BianaryTranslator;
+import base.ModelStuff.Storage.Items.PuzzleItems.PuzzleBook;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
@@ -89,8 +92,11 @@ public class Item extends Observable{
             return Weapon.getFromString(saveString);
         if(split[0].trim().equals("f"))
             return FoodItem.getFromString(saveString);
-        if(split[0].trim().equals("p")){
-            return new PuzzleItem();
+        if(split[0].trim().equals("pb")){
+            return PuzzleBook.getFromString(saveString);
+        }
+        if(split[0].trim().equals("bt")) {
+            return BianaryTranslator.getBTFromString(saveString);
         }
         return new Item();
     }

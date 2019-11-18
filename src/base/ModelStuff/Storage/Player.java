@@ -71,6 +71,10 @@ public class Player extends Observable {
         item.pickup();
     }
 
+    public void addItemToInventoryQuiet(Item item){
+        inventory.add(item);
+    }
+
 
     /**takes in monster an applies damage to it
      *
