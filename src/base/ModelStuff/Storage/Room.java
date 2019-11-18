@@ -166,7 +166,7 @@ public class Room extends Observable{
     public void visit(){
         if(hasBeenVisited) {
             setChanged();
-            notifyObservers("Player has entered room again");
+            notifyObservers(description+"Player has entered room again");
         }
         else {
             setChanged();
